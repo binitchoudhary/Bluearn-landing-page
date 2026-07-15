@@ -40,7 +40,6 @@
     }
     initRevealObserver();
     initCounters();
-    initMarquees(); // re-measure once fonts/images have fully settled
   });
 
   /* ---------------- Scroll progress + navbar state + back-to-top ---------------- */
@@ -146,49 +145,6 @@
     counters.forEach(function (el) { counterObserver.observe(el); });
   }
 
-  /* ---------------- Infinite marquee engine (feature strip) ----------------
-     Clones the seed track until the row's total content width safely exceeds
-     2x the viewport, then drives the loop with a pixel-exact --marquee-w
-     custom property instead of a "100%" transform — this is what guarantees
-     the animation never runs out of content and never shows blank space,
-     regardless of screen width or zoom level. */
-  function initMarquees() {
-    document.querySelectorAll('.js-marquee').forEach(function (group) {
-      var seed = group.querySelector('.marquee-track:not(.is-clone)');
-      if (!seed) return;
-
-      group.querySelectorAll('.marquee-track.is-clone').forEach(function (clone) {
-        clone.remove();
-      });
-
-      var contentWidth = seed.getBoundingClientRect().width;
-      if (!contentWidth) return;
-
-      var containerWidth = group.getBoundingClientRect().width;
-      var speed = parseFloat(group.getAttribute('data-speed')) || 60;
-      var direction = group.getAttribute('data-dir') === 'right' ? 'reverse' : 'normal';
-
-      var totalWidth = contentWidth;
-      var neededWidth = containerWidth * 2 + contentWidth;
-      while (totalWidth < neededWidth) {
-        var clone = seed.cloneNode(true);
-        clone.classList.add('is-clone');
-        clone.setAttribute('aria-hidden', 'true');
-        group.appendChild(clone);
-        totalWidth += contentWidth;
-      }
-
-      group.style.setProperty('--marquee-w', contentWidth + 'px');
-      var duration = (contentWidth / speed).toFixed(2);
-      group.querySelectorAll('.marquee-track').forEach(function (track) {
-        track.style.animationDuration = duration + 's';
-        track.style.animationDirection = direction;
-        if (reduceMotion) track.style.animationPlayState = 'paused';
-      });
-    });
-  }
-  initMarquees();
-
   /* ---------------- Swiper: Hero ---------------- */
   if (window.Swiper) {
     new Swiper('.hero-swiper', {
@@ -219,18 +175,20 @@
       }
     });
 
-    /* Swiper: Use cases */
-    new Swiper('.usecases-swiper', {
+    /* Swiper: Real use cases (reels/shorts carousel) */
+    new Swiper('.reels-swiper', {
       loop: true,
       speed: 700,
-      spaceBetween: 24,
-      slidesPerView: 1.1,
+      spaceBetween: 18,
+      slidesPerView: 2.2,
       grabCursor: true,
       keyboard: { enabled: true },
-      autoplay: reduceMotion ? false : { delay: 4200, disableOnInteraction: false, pauseOnMouseEnter: true },
+      autoplay: reduceMotion ? false : { delay: 3400, disableOnInteraction: false, pauseOnMouseEnter: true },
       breakpoints: {
-        640: { slidesPerView: 2.1 },
-        1024: { slidesPerView: 3.2 }
+        480: { slidesPerView: 2.6 },
+        768: { slidesPerView: 3.4 },
+        1024: { slidesPerView: 4.4 },
+        1280: { slidesPerView: 5.2 }
       }
     });
 
@@ -277,7 +235,7 @@
 
   /* ---------------- Hero mouse parallax on float cards ---------------- */
   var heroSection = document.querySelector('.hero');
-  var floatCards = document.querySelectorAll('.hero__floats .float-card');
+  var floatCards = document.querySelectorAll('.hero-slide__floats .float-card');
 
   if (heroSection && floatCards.length && !reduceMotion && window.matchMedia('(min-width: 1025px)').matches) {
     heroSection.addEventListener('mousemove', rafThrottle(function (e) {
@@ -298,11 +256,75 @@
   if (window.gsap && window.ScrollTrigger && !reduceMotion) {
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.utils.toArray('.blob').forEach(function (blob, i) {
+    gsap.utils.toArray('.hero .blob').forEach(function (blob, i) {
       gsap.to(blob, {
         y: i % 2 === 0 ? 120 : -120,
         ease: 'none',
         scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+      });
+    });
+  }
+
+  /* ---------------- Why BluEarn: drag-to-compare slider ---------------- */
+  (function initCompareSlider() {
+    var slider = document.getElementById('compareSlider');
+    if (!slider) return;
+    var newPanel = slider.querySelector('.compare-slider__panel--new');
+    var handle = slider.querySelector('.compare-slider__handle');
+    var dragging = false;
+
+    function setPosition(clientX) {
+      var rect = slider.getBoundingClientRect();
+      var pct = ((clientX - rect.left) / rect.width) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+      newPanel.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
+      handle.style.left = pct + '%';
+      handle.setAttribute('aria-valuenow', Math.round(pct));
+    }
+
+    function pointerX(e) {
+      return e.touches && e.touches.length ? e.touches[0].clientX : e.clientX;
+    }
+
+    function onDown(e) {
+      dragging = true;
+      slider.classList.add('is-dragging');
+      setPosition(pointerX(e));
+    }
+    var onMove = rafThrottle(function (e) {
+      if (!dragging) return;
+      setPosition(pointerX(e));
+    });
+    function onUp() {
+      dragging = false;
+      slider.classList.remove('is-dragging');
+    }
+
+    slider.addEventListener('mousedown', onDown);
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+    slider.addEventListener('touchstart', onDown, { passive: true });
+    slider.addEventListener('touchmove', onMove, { passive: true });
+    slider.addEventListener('touchend', onUp);
+
+    handle.addEventListener('keydown', function (e) {
+      var current = parseFloat(handle.style.left) || 50;
+      if (e.key === 'ArrowLeft') { setPosition(slider.getBoundingClientRect().left + slider.getBoundingClientRect().width * (Math.max(0, current - 5) / 100)); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { setPosition(slider.getBoundingClientRect().left + slider.getBoundingClientRect().width * (Math.min(100, current + 5) / 100)); e.preventDefault(); }
+    });
+  })();
+
+  /* ---------------- Product card 3D tilt ---------------- */
+  if (!reduceMotion && window.matchMedia('(min-width: 1025px)').matches) {
+    document.querySelectorAll('.product-card').forEach(function (card) {
+      card.addEventListener('mousemove', rafThrottle(function (e) {
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = 'perspective(900px) rotateY(' + (x * 9) + 'deg) rotateX(' + (y * -9) + 'deg) translateY(-8px)';
+      }), { passive: true });
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
       });
     });
   }
@@ -395,11 +417,6 @@
       });
     });
   }
-
-  /* ---------------- Resize: re-sync marquee widths (debounced) ---------------- */
-  window.addEventListener('resize', debounce(function () {
-    initMarquees();
-  }, 200), { passive: true });
 
   /* ---------------- Newsletter form ---------------- */
   var newsletterForm = document.getElementById('newsletterForm');

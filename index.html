@@ -88,11 +88,11 @@
   <div class="swiper hero-swiper">
     <div class="swiper-wrapper">
 
-      <!-- Slide 1 -->
-      <div class="swiper-slide hero-slide" style="--bg:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=2000&q=80')">
+      <!-- Slide 1 — Complete Hotel Management Platform (PMS) -->
+      <div class="swiper-slide hero-slide" data-theme="pms" style="--bg:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=2000&q=80')">
         <div class="hero-slide__overlay"></div>
         <div class="container hero-slide__content">
-          <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> The BluEarn Ecosystem</span>
+          <span class="eyebrow"><i class="fa-solid fa-hotel"></i> Complete Hotel Management</span>
           <h1 class="reveal-up">Increase Revenue. Automate Operations.<br>Delight Every Guest.</h1>
           <p class="reveal-up">One platform to manage all your property needs — Pricing, Revenue Optimization, Guest Communication, Staff Operations and Guest Experience.</p>
           <div class="hero-slide__ctas reveal-up">
@@ -100,13 +100,32 @@
             <a href="#showcase" class="btn btn--ghost btn--lg magnetic"><i class="fa-solid fa-circle-play"></i><span>Watch PMS Demo Series</span></a>
           </div>
         </div>
+        <div class="hero-slide__floats" aria-hidden="true">
+          <div class="float-card hero-float--1" data-depth="1.3">
+            <div class="float-card__head"><i class="fa-solid fa-table-cells"></i> PMS Dashboard <span class="live-dot"></span></div>
+            <div class="room-grid">
+              <span class="room-tile is-occupied"></span><span class="room-tile is-occupied"></span><span class="room-tile is-cleaning"></span><span class="room-tile is-vacant"></span>
+              <span class="room-tile is-occupied"></span><span class="room-tile is-occupied"></span><span class="room-tile is-occupied"></span><span class="room-tile is-vacant"></span>
+            </div>
+            <div class="float-card__foot">18/24 Rooms <strong class="up">Occupied</strong></div>
+          </div>
+          <div class="float-card hero-float--2" data-depth="0.9">
+            <div class="float-card__head"><i class="fa-solid fa-calendar-check"></i> Reservation</div>
+            <p class="reservation-line"><strong>Priya Sharma</strong><span>Room 214 · 2 Nights</span></p>
+            <div class="reservation-status"><i class="fa-solid fa-circle-check"></i> Confirmed &amp; Synced</div>
+          </div>
+          <div class="float-card hero-float--3" data-depth="1.6">
+            <div class="float-card__head">Occupancy Today</div>
+            <div class="occ-ring"><svg viewBox="0 0 36 36"><path class="occ-ring__bg" d="M18 2a16 16 0 0 1 0 32 16 16 0 0 1 0-32"/><path class="occ-ring__fg" d="M18 2a16 16 0 0 1 0 32 16 16 0 0 1 0-32"/></svg><span>92%</span></div>
+          </div>
+        </div>
       </div>
 
-      <!-- Slide 2 -->
-      <div class="swiper-slide hero-slide" style="--bg:url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=80')">
+      <!-- Slide 2 — AI Pricing -->
+      <div class="swiper-slide hero-slide" data-theme="pricing" style="--bg:url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=80')">
         <div class="hero-slide__overlay"></div>
         <div class="container hero-slide__content">
-          <span class="eyebrow"><i class="fa-solid fa-chart-line"></i> AI Pricing Engine</span>
+          <span class="eyebrow"><i class="fa-solid fa-brain"></i> AI Pricing Engine</span>
           <h1 class="reveal-up">AI Pricing That Predicts Demand Before Your Competitors Do.</h1>
           <p class="reveal-up">Automatically optimize room rates based on demand, occupancy, festivals, events and booking trends.</p>
           <div class="hero-slide__ctas reveal-up">
@@ -114,10 +133,29 @@
             <a href="#products" class="btn btn--ghost btn--lg magnetic"><i class="fa-solid fa-layer-group"></i><span>Explore Product Suite</span></a>
           </div>
         </div>
+        <div class="hero-slide__floats" aria-hidden="true">
+          <div class="float-card hero-float--1" data-depth="1.3">
+            <div class="float-card__head"><i class="fa-solid fa-chart-simple"></i> Revenue Pulse <span class="live-dot"></span></div>
+            <svg viewBox="0 0 220 70" class="mini-chart"><polyline points="0,55 25,45 50,50 75,30 100,35 125,15 150,22 175,8 200,14 220,4"/></svg>
+            <div class="float-card__foot">RevPAR <strong class="up">+23.4%</strong></div>
+          </div>
+          <div class="float-card hero-float--2" data-depth="0.9">
+            <div class="float-card__head"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Suggested Rate</div>
+            <div class="ai-rate"><strong>₹8,400</strong><span class="up">+12% vs yesterday</span></div>
+            <div class="float-card__foot">Based on demand, events &amp; booking pace</div>
+          </div>
+          <div class="float-card hero-float--3" data-depth="1.6">
+            <div class="float-card__head">Demand Forecast</div>
+            <div class="bar-chart">
+              <span style="--h:35%"></span><span style="--h:52%"></span><span style="--h:44%"></span><span style="--h:70%"></span><span style="--h:90%"></span>
+            </div>
+            <div class="float-card__foot">Peak in <strong>3 days</strong></div>
+          </div>
+        </div>
       </div>
 
-      <!-- Slide 3 -->
-      <div class="swiper-slide hero-slide" style="--bg:url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=2000&q=80')">
+      <!-- Slide 3 — BlueButler AI -->
+      <div class="swiper-slide hero-slide" data-theme="butler" style="--bg:url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=2000&q=80')">
         <div class="hero-slide__overlay"></div>
         <div class="container hero-slide__content">
           <span class="eyebrow"><i class="fa-solid fa-comments"></i> BlueButler AI</span>
@@ -128,10 +166,26 @@
             <a href="#use-cases" class="btn btn--ghost btn--lg magnetic"><i class="fa-solid fa-circle-play"></i><span>See It In Action</span></a>
           </div>
         </div>
+        <div class="hero-slide__floats" aria-hidden="true">
+          <div class="float-card hero-float--1" data-depth="1.3">
+            <div class="float-card__head"><i class="fa-brands fa-whatsapp"></i> BlueButler AI <span class="live-dot"></span></div>
+            <p class="chat-bubble chat-bubble--in">Guest 214 asked for a late checkout.</p>
+            <p class="chat-bubble chat-bubble--out">Approved &amp; guest notified automatically ✓</p>
+          </div>
+          <div class="float-card hero-float--2" data-depth="0.9">
+            <div class="float-card__head"><i class="fa-solid fa-door-open"></i> Check-in Automation</div>
+            <div class="reservation-status"><i class="fa-solid fa-circle-check"></i> Guest Auto Checked-in — Room 412</div>
+          </div>
+          <div class="float-card hero-float--3" data-depth="1.6">
+            <div class="float-card__head"><i class="fa-solid fa-microphone"></i> Voice Assistant</div>
+            <div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="float-card__foot">Listening…</div>
+          </div>
+        </div>
       </div>
 
-      <!-- Slide 4 -->
-      <div class="swiper-slide hero-slide" style="--bg:url('https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=2000&q=80')">
+      <!-- Slide 4 — All-in-One Ecosystem -->
+      <div class="swiper-slide hero-slide" data-theme="ecosystem" style="--bg:url('https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=2000&q=80')">
         <div class="hero-slide__overlay"></div>
         <div class="container hero-slide__content">
           <span class="eyebrow"><i class="fa-solid fa-cubes"></i> One Ecosystem</span>
@@ -142,30 +196,25 @@
             <a href="#why-bluearn" class="btn btn--ghost btn--lg magnetic"><i class="fa-solid fa-scale-balanced"></i><span>Compare vs Traditional PMS</span></a>
           </div>
         </div>
+        <div class="hero-slide__floats" aria-hidden="true">
+          <div class="float-card hero-float--wide" data-depth="1.2">
+            <div class="float-card__head">One Connected Platform</div>
+            <div class="module-grid">
+              <span><i class="fa-solid fa-diagram-project"></i>Channel Mgr</span>
+              <span><i class="fa-solid fa-id-badge"></i>HR</span>
+              <span><i class="fa-solid fa-arrow-trend-up"></i>Revenue</span>
+              <span><i class="fa-solid fa-face-smile"></i>Guest Exp.</span>
+              <span><i class="fa-solid fa-users-gear"></i>Staff Mgmt</span>
+              <span><i class="fa-solid fa-brain"></i>AI</span>
+            </div>
+          </div>
+          <div class="float-card hero-float--3 hero-float--metric" data-depth="1.6">
+            <i class="fa-solid fa-gauge-high"></i>
+            <div><strong>+23%</strong><span>Operational efficiency</span></div>
+          </div>
+        </div>
       </div>
 
-    </div>
-  </div>
-
-  <!-- Floating dashboard mockups -->
-  <div class="hero__floats" aria-hidden="true">
-    <div class="float-card float-card--revenue" data-depth="1.4">
-      <div class="float-card__head"><i class="fa-solid fa-chart-simple"></i> Revenue Pulse <span class="live-dot"></span></div>
-      <svg viewBox="0 0 220 70" class="mini-chart"><polyline points="0,55 25,45 50,50 75,30 100,35 125,15 150,22 175,8 200,14 220,4"/></svg>
-      <div class="float-card__foot">RevPAR <strong class="up">+23.4%</strong></div>
-    </div>
-    <div class="float-card float-card--chat" data-depth="0.9">
-      <div class="float-card__head"><i class="fa-solid fa-robot"></i> BlueButler AI</div>
-      <p class="chat-bubble chat-bubble--in">Guest 214 asked for a late checkout.</p>
-      <p class="chat-bubble chat-bubble--out">Approved &amp; guest notified automatically ✓</p>
-    </div>
-    <div class="float-card float-card--stat" data-depth="1.7">
-      <i class="fa-solid fa-arrow-trend-up"></i>
-      <div><strong>+₹2.3L</strong><span>Extra revenue this month</span></div>
-    </div>
-    <div class="float-card float-card--booking" data-depth="1.1">
-      <div class="float-card__head"><i class="fa-solid fa-calendar-check"></i> Occupancy Today</div>
-      <div class="occ-ring"><svg viewBox="0 0 36 36"><path class="occ-ring__bg" d="M18 2a16 16 0 0 1 0 32 16 16 0 0 1 0-32"/><path class="occ-ring__fg" d="M18 2a16 16 0 0 1 0 32 16 16 0 0 1 0-32"/></svg><span>92%</span></div>
     </div>
   </div>
 
@@ -189,35 +238,67 @@
   <div class="hero__scroll-indicator"><span></span>Scroll to Explore</div>
 </section>
 
-<!-- ============ SECTION 2 — MARQUEE FEATURE STRIP ============ -->
-<section class="marquee-strip" aria-label="Platform capabilities">
-  <div class="marquee-strip__row js-marquee" data-dir="left" data-speed="48">
-    <div class="marquee-strip__track marquee-track">
-      <span class="pill"><i class="fa-solid fa-arrow-trend-up"></i>Revenue Growth</span>
-      <span class="pill pill--accent">+23% RevPAR</span>
-      <span class="pill"><i class="fa-solid fa-brain"></i>AI Pricing Engine</span>
-      <span class="pill"><i class="fa-solid fa-sliders"></i>Rule Based Pricing</span>
-      <span class="pill"><i class="fa-brands fa-whatsapp"></i>WhatsApp Automation</span>
-      <span class="pill"><i class="fa-solid fa-robot"></i>BlueButler AI</span>
-      <span class="pill"><i class="fa-solid fa-building"></i>Multi Property</span>
-      <span class="pill pill--accent">40K+ Automations / day</span>
-      <span class="pill"><i class="fa-solid fa-diagram-project"></i>Channel Manager</span>
-      <span class="pill"><i class="fa-solid fa-comments"></i>Guest Communication</span>
-      <span class="pill"><i class="fa-solid fa-users"></i>Staff Management</span>
+<!-- ============ SECTION 2 — CONNECTED FEATURE GRID ============ -->
+<section class="feature-grid" aria-label="Platform capabilities">
+  <div class="feature-grid__fx" aria-hidden="true"><div class="blob blob--3"></div></div>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal-up"><i class="fa-solid fa-diagram-project"></i> One Ecosystem</span>
+      <h2 class="reveal-up">Everything Your Hotel Needs.<br>One Powerful Platform.</h2>
+      <p class="reveal-up">One connected ecosystem that powers every part of your hotel operations.</p>
     </div>
-  </div>
-  <div class="marquee-strip__row js-marquee" data-dir="right" data-speed="48">
-    <div class="marquee-strip__track marquee-track">
-      <span class="pill"><i class="fa-solid fa-id-badge"></i>HR</span>
-      <span class="pill"><i class="fa-solid fa-tags"></i>Rates</span>
-      <span class="pill"><i class="fa-solid fa-bed"></i>Availability</span>
-      <span class="pill pill--accent">98% Target Achievement</span>
-      <span class="pill"><i class="fa-solid fa-file-lines"></i>Reports</span>
-      <span class="pill"><i class="fa-solid fa-gauge-high"></i>Revenue Optimization</span>
-      <span class="pill"><i class="fa-solid fa-globe"></i>OTA Distribution</span>
-      <span class="pill"><i class="fa-solid fa-bolt"></i>Task Automation</span>
-      <span class="pill pill--accent">99.99% Uptime</span>
-      <span class="pill"><i class="fa-solid fa-hotel"></i>Multi Property</span>
+
+    <div class="feature-grid__grid">
+      <article class="feature-node reveal-up">
+        <div class="feature-node__icon"><i class="fa-solid fa-brain"></i><span class="live-dot"></span></div>
+        <h4>AI Pricing Engine</h4>
+        <p>Demand-aware rates, updated automatically.</p>
+      </article>
+      <article class="feature-node reveal-up">
+        <div class="feature-node__icon"><i class="fa-solid fa-gauge-high"></i><span class="live-dot"></span></div>
+        <h4>Revenue Optimization</h4>
+        <p>Turn occupancy data into daily decisions.</p>
+      </article>
+      <article class="feature-node reveal-up">
+        <div class="feature-node__icon"><i class="fa-solid fa-robot"></i><span class="live-dot"></span></div>
+        <h4>BlueButler AI</h4>
+        <p>Guest messaging that never sleeps.</p>
+      </article>
+      <article class="feature-node reveal-up">
+        <div class="feature-node__icon"><i class="fa-solid fa-diagram-project"></i><span class="live-dot"></span></div>
+        <h4>Channel Manager</h4>
+        <p>One-click sync across every OTA.</p>
+      </article>
+      <article class="feature-node reveal-up">
+        <div class="feature-node__icon"><i class="fa-solid fa-users-gear"></i><span class="live-dot"></span></div>
+        <h4>Staff Management</h4>
+        <p>Tasks auto-assigned the moment they're needed.</p>
+      </article>
+      <article class="feature-node reveal-up">
+        <div class="feature-node__icon"><i class="fa-solid fa-id-badge"></i><span class="live-dot"></span></div>
+        <h4>HR &amp; Payroll</h4>
+        <p>Attendance and payroll, handled.</p>
+      </article>
+      <article class="feature-node reveal-up">
+        <div class="feature-node__icon"><i class="fa-solid fa-comments"></i><span class="live-dot"></span></div>
+        <h4>Guest Communication</h4>
+        <p>WhatsApp &amp; email, fully automated.</p>
+      </article>
+      <article class="feature-node reveal-up">
+        <div class="feature-node__icon"><i class="fa-solid fa-building"></i><span class="live-dot"></span></div>
+        <h4>Multi-Property Control</h4>
+        <p>Every property, one dashboard.</p>
+      </article>
+      <article class="feature-node reveal-up">
+        <div class="feature-node__icon"><i class="fa-solid fa-bolt"></i><span class="live-dot"></span></div>
+        <h4>Task Automation</h4>
+        <p>40K+ workflows run daily, hands-free.</p>
+      </article>
+      <article class="feature-node reveal-up">
+        <div class="feature-node__icon"><i class="fa-solid fa-chart-line"></i><span class="live-dot"></span></div>
+        <h4>Live Reporting</h4>
+        <p>Real-time dashboards, not spreadsheets.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -271,6 +352,13 @@
       <div class="swiper-slide">
         <article class="product-card">
           <div class="product-card__glow"></div>
+          <div class="product-mock">
+            <div class="product-mock__bar"><span></span><span></span><span></span><em>Front Desk</em></div>
+            <div class="room-grid room-grid--mock">
+              <span class="room-tile is-occupied"></span><span class="room-tile is-occupied"></span><span class="room-tile is-cleaning"></span><span class="room-tile is-vacant"></span>
+              <span class="room-tile is-vacant"></span><span class="room-tile is-occupied"></span><span class="room-tile is-occupied"></span><span class="room-tile is-cleaning"></span>
+            </div>
+          </div>
           <div class="product-card__icon"><i class="fa-solid fa-hotel"></i></div>
           <h3>All-in-One PMS</h3>
           <p>Reservations, housekeeping, front desk and billing — unified in a single command center.</p>
@@ -281,6 +369,11 @@
       <div class="swiper-slide">
         <article class="product-card">
           <div class="product-card__glow"></div>
+          <div class="product-mock">
+            <div class="product-mock__bar"><span></span><span></span><span></span><em>AI Pricing</em></div>
+            <svg viewBox="0 0 220 70" class="mini-chart mini-chart--mock"><polyline points="0,55 25,45 50,50 75,30 100,35 125,15 150,22 175,8 200,14 220,4"/><circle cx="175" cy="8" r="4"/></svg>
+            <span class="mock-tag">₹8,400 recommended</span>
+          </div>
           <div class="product-card__icon"><i class="fa-solid fa-brain"></i></div>
           <h3>AI Pricing</h3>
           <p>Demand-aware rate recommendations powered by real-time market and booking-pace signals.</p>
@@ -291,6 +384,13 @@
       <div class="swiper-slide">
         <article class="product-card">
           <div class="product-card__glow"></div>
+          <div class="product-mock">
+            <div class="product-mock__bar"><span></span><span></span><span></span><em>Revenue</em></div>
+            <div class="mock-stat-pair">
+              <div><span>RevPAR</span><strong>₹6,240</strong><em class="up">+23.4%</em></div>
+              <div><span>ADR</span><strong>₹8,410</strong><em class="up">+11.2%</em></div>
+            </div>
+          </div>
           <div class="product-card__icon"><i class="fa-solid fa-gauge-high"></i></div>
           <h3>Revenue Optimization</h3>
           <p>Turn occupancy, ADR and RevPAR data into daily, actionable revenue decisions.</p>
@@ -301,6 +401,14 @@
       <div class="swiper-slide">
         <article class="product-card">
           <div class="product-card__glow"></div>
+          <div class="product-mock">
+            <div class="product-mock__bar"><span></span><span></span><span></span><em>Rules Engine</em></div>
+            <div class="mock-range">
+              <span class="mock-range__label">Floor ₹4,200</span>
+              <div class="mock-range__track"><div class="mock-range__fill"></div><div class="mock-range__handle"></div></div>
+              <span class="mock-range__label">Ceiling ₹9,800</span>
+            </div>
+          </div>
           <div class="product-card__icon"><i class="fa-solid fa-sliders"></i></div>
           <h3>Rule Based Pricing</h3>
           <p>Set your own guardrails — floors, ceilings and events — while AI handles the heavy lifting.</p>
@@ -311,6 +419,11 @@
       <div class="swiper-slide">
         <article class="product-card">
           <div class="product-card__glow"></div>
+          <div class="product-mock">
+            <div class="product-mock__bar"><span></span><span></span><span></span><em>BlueButler AI</em></div>
+            <p class="chat-bubble chat-bubble--in chat-bubble--mock">Can I get a late checkout?</p>
+            <p class="chat-bubble chat-bubble--out chat-bubble--mock">Approved until 2 PM ✓</p>
+          </div>
           <div class="product-card__icon"><i class="fa-solid fa-robot"></i></div>
           <h3>BlueButler AI</h3>
           <p>Automated guest messaging across WhatsApp and email — from booking to checkout.</p>
@@ -321,6 +434,14 @@
       <div class="swiper-slide">
         <article class="product-card">
           <div class="product-card__glow"></div>
+          <div class="product-mock">
+            <div class="product-mock__bar"><span></span><span></span><span></span><em>Staff Tasks</em></div>
+            <ul class="mock-tasks">
+              <li><i class="fa-solid fa-square-check"></i> Room 214 — Housekeeping</li>
+              <li><i class="fa-solid fa-square-check"></i> Room 118 — Maintenance</li>
+              <li><i class="fa-regular fa-square"></i> Room 402 — Turndown</li>
+            </ul>
+          </div>
           <div class="product-card__icon"><i class="fa-solid fa-users-gear"></i></div>
           <h3>Staff Management</h3>
           <p>Auto-assigned tasks, shift schedules and real-time performance tracking for your team.</p>
@@ -331,6 +452,14 @@
       <div class="swiper-slide">
         <article class="product-card">
           <div class="product-card__glow"></div>
+          <div class="product-mock">
+            <div class="product-mock__bar"><span></span><span></span><span></span><em>HR Suite</em></div>
+            <ul class="mock-table">
+              <li><span>Anita R.</span><em class="mock-badge mock-badge--in">On Duty</em></li>
+              <li><span>Ravi K.</span><em class="mock-badge mock-badge--in">On Duty</em></li>
+              <li><span>Sana M.</span><em class="mock-badge mock-badge--off">Off Today</em></li>
+            </ul>
+          </div>
           <div class="product-card__icon"><i class="fa-solid fa-id-badge"></i></div>
           <h3>HR Management</h3>
           <p>Payroll, attendance and staff records built for the realities of hotel operations.</p>
@@ -352,27 +481,36 @@
       <p class="reveal-up">See the difference between running on legacy software and running on an intelligent platform.</p>
     </div>
 
-    <div class="compare-table reveal-up">
-      <div class="compare-table__row compare-table__row--head">
-        <div class="compare-table__label"></div>
-        <div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-clock-rotate-left"></i> Traditional PMS</div>
-        <div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-water"></i> BluEarn AI Platform</div>
+    <div class="compare-slider reveal-up" id="compareSlider">
+      <div class="compare-slider__panel compare-slider__panel--old">
+        <span class="compare-slider__badge"><i class="fa-solid fa-clock-rotate-left"></i> Traditional PMS</span>
+        <ul class="compare-slider__list">
+          <li><i class="fa-solid fa-xmark"></i> Manual rate updates, hotel-by-hotel</li>
+          <li><i class="fa-solid fa-xmark"></i> No demand forecasting</li>
+          <li><i class="fa-solid fa-xmark"></i> Fragmented, error-prone OTA management</li>
+          <li><i class="fa-solid fa-xmark"></i> Manual, slow guest messaging</li>
+          <li><i class="fa-solid fa-xmark"></i> Spreadsheets &amp; manual exports</li>
+          <li><i class="fa-solid fa-xmark"></i> Siloed, paper-based scheduling</li>
+          <li><i class="fa-solid fa-xmark"></i> Reactive operations</li>
+        </ul>
       </div>
-
-      <div class="compare-table__row"><div class="compare-table__label">Rate Updates</div><div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-xmark"></i> Manual, hotel-by-hotel</div><div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-check"></i> AI-optimized in real time</div></div>
-
-      <div class="compare-table__row"><div class="compare-table__label">Demand Forecasting</div><div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-xmark"></i> None</div><div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-check"></i> Predictive, event-aware</div></div>
-
-      <div class="compare-table__row"><div class="compare-table__label">OTA Management</div><div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-xmark"></i> Fragmented, error-prone</div><div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-check"></i> One-click sync everywhere</div></div>
-
-      <div class="compare-table__row"><div class="compare-table__label">Guest Messaging</div><div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-xmark"></i> Manual, slow response</div><div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-check"></i> Automated via BlueButler AI</div></div>
-
-      <div class="compare-table__row"><div class="compare-table__label">Reporting</div><div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-xmark"></i> Spreadsheets & exports</div><div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-check"></i> Live dashboards</div></div>
-
-      <div class="compare-table__row"><div class="compare-table__label">Staff Scheduling</div><div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-xmark"></i> Siloed, paper-based</div><div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-check"></i> Auto-assigned & tracked</div></div>
-
-      <div class="compare-table__row"><div class="compare-table__label">Operational Mode</div><div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-xmark"></i> Reactive</div><div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-check"></i> Proactive & predictive</div></div>
+      <div class="compare-slider__panel compare-slider__panel--new" style="clip-path: inset(0 0 0 50%)">
+        <span class="compare-slider__badge compare-slider__badge--new"><i class="fa-solid fa-water"></i> BluEarn AI Platform</span>
+        <ul class="compare-slider__list">
+          <li><i class="fa-solid fa-check"></i> AI-optimized rates in real time</li>
+          <li><i class="fa-solid fa-check"></i> Predictive, event-aware forecasting</li>
+          <li><i class="fa-solid fa-check"></i> One-click sync across every OTA</li>
+          <li><i class="fa-solid fa-check"></i> Automated via BlueButler AI</li>
+          <li><i class="fa-solid fa-check"></i> Live, real-time dashboards</li>
+          <li><i class="fa-solid fa-check"></i> Auto-assigned &amp; tracked staff tasks</li>
+          <li><i class="fa-solid fa-check"></i> Proactive &amp; predictive operations</li>
+        </ul>
+      </div>
+      <div class="compare-slider__handle" style="left:50%" tabindex="0" role="slider" aria-label="Drag to compare Traditional PMS and BluEarn AI Platform" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+        <div class="compare-slider__grip"><i class="fa-solid fa-arrows-left-right"></i></div>
+      </div>
     </div>
+    <p class="compare-slider__hint reveal-up"><i class="fa-solid fa-arrows-left-right"></i> Drag the handle to compare</p>
   </div>
 </section>
 
@@ -386,61 +524,109 @@
 
   <div class="swiper serve-swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Hotels"><div class="serve-card__label"><i class="fa-solid fa-hotel"></i> Hotels</div></article></div>
-      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Resorts"><div class="serve-card__label"><i class="fa-solid fa-umbrella-beach"></i> Resorts</div></article></div>
-      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Boutique Hotels"><div class="serve-card__label"><i class="fa-solid fa-gem"></i> Boutique Hotels</div></article></div>
-      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Hotel Groups"><div class="serve-card__label"><i class="fa-solid fa-building"></i> Hotel Groups</div></article></div>
-      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1519449556851-5720b33024e7?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Hostels"><div class="serve-card__label"><i class="fa-solid fa-bed"></i> Hostels</div></article></div>
-      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Vacation Rentals"><div class="serve-card__label"><i class="fa-solid fa-house-chimney"></i> Vacation Rentals</div></article></div>
-      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Luxury Properties"><div class="serve-card__label"><i class="fa-solid fa-crown"></i> Luxury Properties</div></article></div>
+      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1000&q=88" loading="lazy" alt="Hotels"><div class="serve-card__label"><i class="fa-solid fa-hotel"></i> Hotels</div></article></div>
+      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1000&q=88" loading="lazy" alt="Resorts"><div class="serve-card__label"><i class="fa-solid fa-umbrella-beach"></i> Resorts</div></article></div>
+      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1000&q=88" loading="lazy" alt="Boutique Hotels"><div class="serve-card__label"><i class="fa-solid fa-gem"></i> Boutique Hotels</div></article></div>
+      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1000&q=88" loading="lazy" alt="Hotel Groups"><div class="serve-card__label"><i class="fa-solid fa-building"></i> Hotel Groups</div></article></div>
+      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1519449556851-5720b33024e7?auto=format&fit=crop&w=1000&q=88" loading="lazy" alt="Hostels"><div class="serve-card__label"><i class="fa-solid fa-bed"></i> Hostels</div></article></div>
+      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1000&q=88" loading="lazy" alt="Vacation Rentals"><div class="serve-card__label"><i class="fa-solid fa-house-chimney"></i> Vacation Rentals</div></article></div>
+      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=88" loading="lazy" alt="Luxury Properties"><div class="serve-card__label"><i class="fa-solid fa-crown"></i> Luxury Properties</div></article></div>
     </div>
   </div>
 </section>
 
-<!-- ============ SECTION 7 — REAL USE CASES ============ -->
-<section class="usecases" id="use-cases">
+<!-- ============ SECTION 7 — REAL USE CASES (REELS) ============ -->
+<section class="reels" id="use-cases">
   <div class="container section-head">
     <span class="eyebrow reveal-up"><i class="fa-solid fa-clapperboard"></i> Real Use Cases</span>
     <h2 class="reveal-up">See BluEarn Working Inside Real Properties.</h2>
-    <p class="reveal-up">Feature demos, success stories and walkthroughs from the field.</p>
+    <p class="reveal-up">Short, snackable feature demos, success stories and walkthroughs from the field.</p>
   </div>
 
-  <div class="swiper usecases-swiper">
+  <div class="swiper reels-swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <article class="video-card">
-          <div class="video-card__thumb"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Feature demo"><span class="video-card__tag">Feature Demo</span><span class="video-card__duration">2:14</span><button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button></div>
-          <h4>Inside the AI Pricing Engine</h4>
+        <article class="reel-card">
+          <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=700&q=80" loading="lazy" alt="Feature demo">
+          <div class="reel-card__scrim"></div>
+          <span class="reel-card__tag">Feature Demo</span>
+          <span class="reel-card__duration">0:42</span>
+          <button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button>
+          <div class="reel-card__footer">
+            <span class="reel-card__creator"><span class="reel-card__avatar">BE</span>BluEarn Team</span>
+            <h4>Inside the AI Pricing Engine</h4>
+            <div class="reel-card__stats"><span><i class="fa-solid fa-eye"></i> 12.4K</span><span><i class="fa-solid fa-heart"></i> 892</span></div>
+          </div>
         </article>
       </div>
       <div class="swiper-slide">
-        <article class="video-card">
-          <div class="video-card__thumb"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Success story"><span class="video-card__tag">Success Story</span><span class="video-card__duration">3:02</span><button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button></div>
-          <h4>How a 40-Room Boutique Hotel Grew RevPAR 27%</h4>
+        <article class="reel-card">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=700&q=80" loading="lazy" alt="Success story">
+          <div class="reel-card__scrim"></div>
+          <span class="reel-card__tag">Success Story</span>
+          <span class="reel-card__duration">0:58</span>
+          <button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button>
+          <div class="reel-card__footer">
+            <span class="reel-card__creator"><span class="reel-card__avatar">RK</span>Rohan Kapoor</span>
+            <h4>How a 40-Room Hotel Grew RevPAR 27%</h4>
+            <div class="reel-card__stats"><span><i class="fa-solid fa-eye"></i> 8.1K</span><span><i class="fa-solid fa-heart"></i> 640</span></div>
+          </div>
         </article>
       </div>
       <div class="swiper-slide">
-        <article class="video-card">
-          <div class="video-card__thumb"><img src="https://images.unsplash.com/photo-1560347876-aeef00ee58a1?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Product walkthrough"><span class="video-card__tag">Walkthrough</span><span class="video-card__duration">4:40</span><button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button></div>
-          <h4>Setting Up Channel Manager in Under 10 Minutes</h4>
+        <article class="reel-card">
+          <img src="https://images.unsplash.com/photo-1560347876-aeef00ee58a1?auto=format&fit=crop&w=700&q=80" loading="lazy" alt="Product walkthrough">
+          <div class="reel-card__scrim"></div>
+          <span class="reel-card__tag">Walkthrough</span>
+          <span class="reel-card__duration">1:15</span>
+          <button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button>
+          <div class="reel-card__footer">
+            <span class="reel-card__creator"><span class="reel-card__avatar">BE</span>BluEarn Team</span>
+            <h4>Channel Manager in Under 10 Minutes</h4>
+            <div class="reel-card__stats"><span><i class="fa-solid fa-eye"></i> 15.2K</span><span><i class="fa-solid fa-heart"></i> 1.1K</span></div>
+          </div>
         </article>
       </div>
       <div class="swiper-slide">
-        <article class="video-card">
-          <div class="video-card__thumb"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Tutorial"><span class="video-card__tag">Tutorial</span><span class="video-card__duration">1:58</span><button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button></div>
-          <h4>Automating Guest Messages With BlueButler AI</h4>
+        <article class="reel-card">
+          <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=700&q=80" loading="lazy" alt="Tutorial">
+          <div class="reel-card__scrim"></div>
+          <span class="reel-card__tag">Tutorial</span>
+          <span class="reel-card__duration">0:36</span>
+          <button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button>
+          <div class="reel-card__footer">
+            <span class="reel-card__creator"><span class="reel-card__avatar">BE</span>BluEarn Team</span>
+            <h4>Automating Guests With BlueButler AI</h4>
+            <div class="reel-card__stats"><span><i class="fa-solid fa-eye"></i> 9.7K</span><span><i class="fa-solid fa-heart"></i> 705</span></div>
+          </div>
         </article>
       </div>
       <div class="swiper-slide">
-        <article class="video-card">
-          <div class="video-card__thumb"><img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Consultant interview"><span class="video-card__tag">Consultant</span><span class="video-card__duration">5:12</span><button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button></div>
-          <h4>A Revenue Strategist's Take on AI Pricing</h4>
+        <article class="reel-card">
+          <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=700&q=80" loading="lazy" alt="Consultant interview">
+          <div class="reel-card__scrim"></div>
+          <span class="reel-card__tag">Consultant</span>
+          <span class="reel-card__duration">1:32</span>
+          <button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button>
+          <div class="reel-card__footer">
+            <span class="reel-card__creator"><span class="reel-card__avatar">MI</span>Meera Iyer</span>
+            <h4>A Revenue Strategist's Take on AI Pricing</h4>
+            <div class="reel-card__stats"><span><i class="fa-solid fa-eye"></i> 6.3K</span><span><i class="fa-solid fa-heart"></i> 410</span></div>
+          </div>
         </article>
       </div>
       <div class="swiper-slide">
-        <article class="video-card">
-          <div class="video-card__thumb"><img src="https://images.unsplash.com/photo-1551776235-dde6d482980b?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Collaboration"><span class="video-card__tag">Collaboration</span><span class="video-card__duration">3:36</span><button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button></div>
-          <h4>Behind the Scenes: BluEarn x Hospitality Creators</h4>
+        <article class="reel-card">
+          <img src="https://images.unsplash.com/photo-1551776235-dde6d482980b?auto=format&fit=crop&w=700&q=80" loading="lazy" alt="Collaboration">
+          <div class="reel-card__scrim"></div>
+          <span class="reel-card__tag">Collaboration</span>
+          <span class="reel-card__duration">0:51</span>
+          <button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button>
+          <div class="reel-card__footer">
+            <span class="reel-card__creator"><span class="reel-card__avatar">BE</span>BluEarn x Creators</span>
+            <h4>Behind the Scenes: Hospitality Creators</h4>
+            <div class="reel-card__stats"><span><i class="fa-solid fa-eye"></i> 11.8K</span><span><i class="fa-solid fa-heart"></i> 980</span></div>
+          </div>
         </article>
       </div>
     </div>
@@ -457,17 +643,17 @@
 
   <div class="swiper logo-swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><span class="logo-chip"><i class="fa-solid fa-globe"></i> Booking.com</span></div>
-      <div class="swiper-slide"><span class="logo-chip"><i class="fa-solid fa-plane"></i> Expedia</span></div>
-      <div class="swiper-slide"><span class="logo-chip"><i class="fa-solid fa-earth-asia"></i> Agoda</span></div>
-      <div class="swiper-slide"><span class="logo-chip"><i class="fa-brands fa-airbnb"></i> Airbnb</span></div>
-      <div class="swiper-slide"><span class="logo-chip"><i class="fa-solid fa-route"></i> MakeMyTrip</span></div>
-      <div class="swiper-slide"><span class="logo-chip"><i class="fa-brands fa-google"></i> Google Hotel Ads</span></div>
-      <div class="swiper-slide"><span class="logo-chip"><i class="fa-brands fa-stripe"></i> Stripe</span></div>
-      <div class="swiper-slide"><span class="logo-chip"><i class="fa-solid fa-indian-rupee-sign"></i> Razorpay</span></div>
-      <div class="swiper-slide"><span class="logo-chip"><i class="fa-brands fa-aws"></i> AWS</span></div>
-      <div class="swiper-slide"><span class="logo-chip"><i class="fa-brands fa-google"></i> Google Cloud</span></div>
-      <div class="swiper-slide"><span class="logo-chip"><i class="fa-brands fa-microsoft"></i> Azure</span></div>
+      <div class="swiper-slide"><span class="logo-chip" style="--brand:#2e6fdb"><i class="fa-solid fa-globe"></i> Booking.com</span></div>
+      <div class="swiper-slide"><span class="logo-chip" style="--brand:#ffc72c"><i class="fa-solid fa-plane"></i> Expedia</span></div>
+      <div class="swiper-slide"><span class="logo-chip" style="--brand:#ee3239"><i class="fa-solid fa-earth-asia"></i> Agoda</span></div>
+      <div class="swiper-slide"><span class="logo-chip" style="--brand:#ff5a5f"><i class="fa-brands fa-airbnb"></i> Airbnb</span></div>
+      <div class="swiper-slide"><span class="logo-chip" style="--brand:#eb2026"><i class="fa-solid fa-route"></i> MakeMyTrip</span></div>
+      <div class="swiper-slide"><span class="logo-chip" style="--brand:#4285f4"><i class="fa-brands fa-google"></i> Google Hotel Ads</span></div>
+      <div class="swiper-slide"><span class="logo-chip" style="--brand:#635bff"><i class="fa-brands fa-stripe"></i> Stripe</span></div>
+      <div class="swiper-slide"><span class="logo-chip" style="--brand:#3395ff"><i class="fa-solid fa-indian-rupee-sign"></i> Razorpay</span></div>
+      <div class="swiper-slide"><span class="logo-chip" style="--brand:#ff9900"><i class="fa-brands fa-aws"></i> AWS</span></div>
+      <div class="swiper-slide"><span class="logo-chip" style="--brand:#4285f4"><i class="fa-brands fa-google"></i> Google Cloud</span></div>
+      <div class="swiper-slide"><span class="logo-chip" style="--brand:#0078d4"><i class="fa-brands fa-microsoft"></i> Azure</span></div>
     </div>
   </div>
 </section>
@@ -524,7 +710,10 @@
 
 <!-- ============ SECTION 10 — PRICING BANNER ============ -->
 <section class="pricing-banner" id="pricing-banner">
-  <div class="pricing-banner__fx" aria-hidden="true"></div>
+  <div class="pricing-banner__fx" aria-hidden="true">
+    <div class="blob blob--pricing-1"></div>
+    <div class="blob blob--pricing-2"></div>
+  </div>
   <div class="container pricing-banner__inner">
     <h2 class="reveal-up">Wondering How Much BluEarn Costs?</h2>
     <p class="reveal-up">Less than the revenue you're probably losing with manual operations.</p>
@@ -536,6 +725,19 @@
 <section class="contact" id="contact">
   <div class="container contact__grid">
     <div class="contact__intro reveal-left">
+      <svg class="contact__illustration" viewBox="0 0 160 160" aria-hidden="true">
+        <defs>
+          <linearGradient id="contactGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#2f6bff"/>
+            <stop offset="100%" stop-color="#18d9cf"/>
+          </linearGradient>
+        </defs>
+        <circle cx="80" cy="80" r="70" fill="none" stroke="url(#contactGradient)" stroke-width="1" stroke-dasharray="4 8" opacity="0.5"/>
+        <circle cx="80" cy="80" r="46" fill="none" stroke="url(#contactGradient)" stroke-width="1.5" opacity="0.6"/>
+        <circle cx="80" cy="10" r="5" fill="url(#contactGradient)"/>
+        <circle cx="150" cy="80" r="4" fill="url(#contactGradient)" opacity="0.7"/>
+        <circle cx="34" cy="126" r="3" fill="url(#contactGradient)" opacity="0.8"/>
+      </svg>
       <span class="eyebrow"><i class="fa-solid fa-envelope-open-text"></i> Let's Talk</span>
       <h2>Get a Free Revenue &amp; Operations Consultation.</h2>
       <p>Tell us about your property and one of our revenue strategists will get back to you within one business day.</p>
@@ -610,30 +812,32 @@
     </div>
 
     <div class="blog__grid">
-      <article class="blog-card reveal-up">
-        <div class="blog-card__image"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Dynamic pricing"><span class="blog-card__tag">Revenue Strategy</span></div>
+      <article class="blog-card blog-card--featured reveal-up">
+        <div class="blog-card__image"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80" loading="lazy" alt="Dynamic pricing"><span class="blog-card__tag">Revenue Strategy</span></div>
         <div class="blog-card__body">
           <span class="blog-card__meta"><i class="fa-regular fa-clock"></i> 6 min read</span>
           <h3>5 Dynamic Pricing Mistakes Costing Hotels Revenue</h3>
-          <p>Why static rate cards are quietly leaving money on the table — and how to fix it.</p>
+          <p>Why static rate cards are quietly leaving money on the table every single night — and the AI-driven fix top-performing hotels have already switched to.</p>
         </div>
       </article>
-      <article class="blog-card reveal-up">
-        <div class="blog-card__image"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="AI in hospitality"><span class="blog-card__tag">AI in Hospitality</span></div>
-        <div class="blog-card__body">
-          <span class="blog-card__meta"><i class="fa-regular fa-clock"></i> 4 min read</span>
-          <h3>How AI Guest Messaging Improves Review Scores</h3>
-          <p>Faster responses correlate directly with higher guest satisfaction ratings.</p>
-        </div>
-      </article>
-      <article class="blog-card reveal-up">
-        <div class="blog-card__image"><img src="https://images.unsplash.com/photo-1445991842772-097fea258e7b?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Operations playbook"><span class="blog-card__tag">Operations</span></div>
-        <div class="blog-card__body">
-          <span class="blog-card__meta"><i class="fa-regular fa-clock"></i> 7 min read</span>
-          <h3>The 48-Hour Hotel Tech Migration Playbook</h3>
-          <p>A step-by-step guide to switching PMS platforms without losing a single booking.</p>
-        </div>
-      </article>
+      <div class="blog__secondary">
+        <article class="blog-card blog-card--row reveal-up">
+          <div class="blog-card__image"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=700&q=80" loading="lazy" alt="AI in hospitality"><span class="blog-card__tag">AI in Hospitality</span></div>
+          <div class="blog-card__body">
+            <span class="blog-card__meta"><i class="fa-regular fa-clock"></i> 4 min read</span>
+            <h3>How AI Guest Messaging Improves Review Scores</h3>
+            <p>Faster responses correlate directly with higher guest satisfaction ratings.</p>
+          </div>
+        </article>
+        <article class="blog-card blog-card--row reveal-up">
+          <div class="blog-card__image"><img src="https://images.unsplash.com/photo-1445991842772-097fea258e7b?auto=format&fit=crop&w=700&q=80" loading="lazy" alt="Operations playbook"><span class="blog-card__tag">Operations</span></div>
+          <div class="blog-card__body">
+            <span class="blog-card__meta"><i class="fa-regular fa-clock"></i> 7 min read</span>
+            <h3>The 48-Hour Hotel Tech Migration Playbook</h3>
+            <p>A step-by-step guide to switching PMS platforms without losing a single booking.</p>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
 </section>
