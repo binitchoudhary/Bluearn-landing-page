@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BluEarn — AI Revenue & Operations Platform for Modern Hospitality</title>
+<meta name="description" content="BluEarn is the all-in-one AI platform for hotels — dynamic pricing, PMS, channel management, guest communication and staff operations, unified.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="BluEarn — AI Revenue &amp; Operations Platform for Modern Hospitality">
+<meta property="og:description" content="Increase revenue, automate operations and delight every guest with one AI-powered hotel platform.">
+<meta property="og:type" content="website">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%232f6bff'/%3E%3Cstop offset='100%25' stop-color='%2318d9cf'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Cpath d='M50 20c14 16 20 27 20 38a20 20 0 0 1-40 0c0-11 6-22 20-38z' fill='%23061019'/%3E%3C/svg%3E">
+
+<!-- Preconnects -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<!-- Styles -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ PRELOADER ============ -->
+<div class="preloader" id="preloader">
+  <div class="preloader__mark">
+    <span class="preloader__ring"></span>
+    <i class="fa-solid fa-water"></i>
+  </div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a href="#home" class="navbar__logo">
+      <span class="logo-mark"><i class="fa-solid fa-water"></i></span>
+      <span class="logo-text">Blu<span>Earn</span></span>
+    </a>
+
+    <nav class="navbar__nav" id="navMenu">
+      <a href="#products">Products</a>
+      <a href="#why-bluearn">Why BluEarn</a>
+      <a href="#use-cases">Use Cases</a>
+      <a href="#pricing-banner">Pricing</a>
+      <a href="#blog">Resources</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="navbar__actions">
+      <a href="tel:+918280006543" class="navbar__phone"><i class="fa-solid fa-phone"></i> +91 82800 06543</a>
+      <a href="#contact" class="btn btn--primary btn--sm magnetic">
+        <span>Get Free Consultation</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <button class="navbar__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ SECTION 1 — HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero__fx" aria-hidden="true">
+    <div class="blob blob--1"></div>
+    <div class="blob blob--2"></div>
+    <div class="hero__grid-lines"></div>
+    <div class="noise-layer"></div>
+  </div>
+
+  <div class="swiper hero-swiper">
+    <div class="swiper-wrapper">
+
+      <!-- Slide 1 -->
+      <div class="swiper-slide hero-slide" style="--bg:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=2000&q=80')">
+        <div class="hero-slide__overlay"></div>
+        <div class="container hero-slide__content">
+          <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> The BluEarn Ecosystem</span>
+          <h1 class="reveal-up">Increase Revenue. Automate Operations.<br>Delight Every Guest.</h1>
+          <p class="reveal-up">One platform to manage all your property needs — Pricing, Revenue Optimization, Guest Communication, Staff Operations and Guest Experience.</p>
+          <div class="hero-slide__ctas reveal-up">
+            <a href="#contact" class="btn btn--primary btn--lg magnetic"><span>Get Free Consultation</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#showcase" class="btn btn--ghost btn--lg magnetic"><i class="fa-solid fa-circle-play"></i><span>Watch PMS Demo Series</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide hero-slide" style="--bg:url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=80')">
+        <div class="hero-slide__overlay"></div>
+        <div class="container hero-slide__content">
+          <span class="eyebrow"><i class="fa-solid fa-chart-line"></i> AI Pricing Engine</span>
+          <h1 class="reveal-up">AI Pricing That Predicts Demand Before Your Competitors Do.</h1>
+          <p class="reveal-up">Automatically optimize room rates based on demand, occupancy, festivals, events and booking trends.</p>
+          <div class="hero-slide__ctas reveal-up">
+            <a href="#contact" class="btn btn--primary btn--lg magnetic"><span>Get Pricing Strategy</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#products" class="btn btn--ghost btn--lg magnetic"><i class="fa-solid fa-layer-group"></i><span>Explore Product Suite</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide hero-slide" style="--bg:url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=2000&q=80')">
+        <div class="hero-slide__overlay"></div>
+        <div class="container hero-slide__content">
+          <span class="eyebrow"><i class="fa-solid fa-comments"></i> BlueButler AI</span>
+          <h1 class="reveal-up">Turn Every Guest Interaction Into a Luxury Experience.</h1>
+          <p class="reveal-up">From booking confirmation to checkout, automate guest communication with BlueButler AI.</p>
+          <div class="hero-slide__ctas reveal-up">
+            <a href="#contact" class="btn btn--primary btn--lg magnetic"><span>Talk To Our Team</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#use-cases" class="btn btn--ghost btn--lg magnetic"><i class="fa-solid fa-circle-play"></i><span>See It In Action</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="swiper-slide hero-slide" style="--bg:url('https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=2000&q=80')">
+        <div class="hero-slide__overlay"></div>
+        <div class="container hero-slide__content">
+          <span class="eyebrow"><i class="fa-solid fa-cubes"></i> One Ecosystem</span>
+          <h1 class="reveal-up">Every System Your Property Needs. One Intelligent Platform.</h1>
+          <p class="reveal-up">PMS, Revenue Management, Channel Distribution, Guest Experience and Staff Operations — built to work together, not around each other.</p>
+          <div class="hero-slide__ctas reveal-up">
+            <a href="#contact" class="btn btn--primary btn--lg magnetic"><span>Start Your Free Consultation</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#why-bluearn" class="btn btn--ghost btn--lg magnetic"><i class="fa-solid fa-scale-balanced"></i><span>Compare vs Traditional PMS</span></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Floating dashboard mockups -->
+  <div class="hero__floats" aria-hidden="true">
+    <div class="float-card float-card--revenue" data-depth="1.4">
+      <div class="float-card__head"><i class="fa-solid fa-chart-simple"></i> Revenue Pulse <span class="live-dot"></span></div>
+      <svg viewBox="0 0 220 70" class="mini-chart"><polyline points="0,55 25,45 50,50 75,30 100,35 125,15 150,22 175,8 200,14 220,4"/></svg>
+      <div class="float-card__foot">RevPAR <strong class="up">+23.4%</strong></div>
+    </div>
+    <div class="float-card float-card--chat" data-depth="0.9">
+      <div class="float-card__head"><i class="fa-solid fa-robot"></i> BlueButler AI</div>
+      <p class="chat-bubble chat-bubble--in">Guest 214 asked for a late checkout.</p>
+      <p class="chat-bubble chat-bubble--out">Approved &amp; guest notified automatically ✓</p>
+    </div>
+    <div class="float-card float-card--stat" data-depth="1.7">
+      <i class="fa-solid fa-arrow-trend-up"></i>
+      <div><strong>+₹2.3L</strong><span>Extra revenue this month</span></div>
+    </div>
+    <div class="float-card float-card--booking" data-depth="1.1">
+      <div class="float-card__head"><i class="fa-solid fa-calendar-check"></i> Occupancy Today</div>
+      <div class="occ-ring"><svg viewBox="0 0 36 36"><path class="occ-ring__bg" d="M18 2a16 16 0 0 1 0 32 16 16 0 0 1 0-32"/><path class="occ-ring__fg" d="M18 2a16 16 0 0 1 0 32 16 16 0 0 1 0-32"/></svg><span>92%</span></div>
+    </div>
+  </div>
+
+  <div class="hero__controls container">
+    <div class="hero__pagination"></div>
+    <div class="hero__arrows">
+      <button class="hero__arrow hero__arrow--prev" aria-label="Previous slide"><i class="fa-solid fa-arrow-left"></i></button>
+      <button class="hero__arrow hero__arrow--next" aria-label="Next slide"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <div class="hero__stats">
+    <div class="container hero__stats-grid">
+      <div class="stat"><strong class="counter" data-target="350" data-suffix="+">0</strong><span>Properties Powered</span></div>
+      <div class="stat"><strong class="counter" data-target="23" data-suffix="%">0</strong><span>Avg. Revenue Uplift</span></div>
+      <div class="stat"><strong class="counter" data-target="40" data-suffix="K+">0</strong><span>Automations Daily</span></div>
+      <div class="stat"><strong>24/7</strong><span>AI-Powered Support</span></div>
+    </div>
+  </div>
+
+  <div class="hero__scroll-indicator"><span></span>Scroll to Explore</div>
+</section>
+
+<!-- ============ SECTION 2 — MARQUEE FEATURE STRIP ============ -->
+<section class="marquee-strip" aria-label="Platform capabilities">
+  <div class="marquee-strip__row js-marquee" data-dir="left" data-speed="48">
+    <div class="marquee-strip__track marquee-track">
+      <span class="pill"><i class="fa-solid fa-arrow-trend-up"></i>Revenue Growth</span>
+      <span class="pill pill--accent">+23% RevPAR</span>
+      <span class="pill"><i class="fa-solid fa-brain"></i>AI Pricing Engine</span>
+      <span class="pill"><i class="fa-solid fa-sliders"></i>Rule Based Pricing</span>
+      <span class="pill"><i class="fa-brands fa-whatsapp"></i>WhatsApp Automation</span>
+      <span class="pill"><i class="fa-solid fa-robot"></i>BlueButler AI</span>
+      <span class="pill"><i class="fa-solid fa-building"></i>Multi Property</span>
+      <span class="pill pill--accent">40K+ Automations / day</span>
+      <span class="pill"><i class="fa-solid fa-diagram-project"></i>Channel Manager</span>
+      <span class="pill"><i class="fa-solid fa-comments"></i>Guest Communication</span>
+      <span class="pill"><i class="fa-solid fa-users"></i>Staff Management</span>
+    </div>
+  </div>
+  <div class="marquee-strip__row js-marquee" data-dir="right" data-speed="48">
+    <div class="marquee-strip__track marquee-track">
+      <span class="pill"><i class="fa-solid fa-id-badge"></i>HR</span>
+      <span class="pill"><i class="fa-solid fa-tags"></i>Rates</span>
+      <span class="pill"><i class="fa-solid fa-bed"></i>Availability</span>
+      <span class="pill pill--accent">98% Target Achievement</span>
+      <span class="pill"><i class="fa-solid fa-file-lines"></i>Reports</span>
+      <span class="pill"><i class="fa-solid fa-gauge-high"></i>Revenue Optimization</span>
+      <span class="pill"><i class="fa-solid fa-globe"></i>OTA Distribution</span>
+      <span class="pill"><i class="fa-solid fa-bolt"></i>Task Automation</span>
+      <span class="pill pill--accent">99.99% Uptime</span>
+      <span class="pill"><i class="fa-solid fa-hotel"></i>Multi Property</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3 — VIDEO SHOWCASE ============ -->
+<section class="showcase" id="showcase">
+  <div class="showcase__bg" aria-hidden="true"></div>
+  <div class="container showcase__grid">
+    <div class="showcase__text">
+      <span class="eyebrow reveal-left"><i class="fa-solid fa-circle-play"></i> See It In Motion</span>
+      <h2 class="reveal-left">Watch How Hotels Automate an Entire Property With BluEarn</h2>
+      <p class="reveal-left">From the front desk to the revenue desk, see how independent hotels and hotel groups replace six disconnected tools with one intelligent operating system.</p>
+      <ul class="check-list reveal-left">
+        <li><i class="fa-solid fa-circle-check"></i> Live rate changes pushed to every OTA in seconds</li>
+        <li><i class="fa-solid fa-circle-check"></i> Guest messages answered by BlueButler AI, 24/7</li>
+        <li><i class="fa-solid fa-circle-check"></i> Staff tasks auto-assigned the moment a room is booked</li>
+      </ul>
+      <a href="#contact" class="btn btn--primary magnetic reveal-left"><span>Book a Live Walkthrough</span><i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="showcase__video-wrap reveal-right">
+      <div class="showcase__video" id="ytFacade" data-yt-id="REPLACE_WITH_BLUEARN_DEMO_ID">
+        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1400&q=80" alt="BluEarn platform demo preview" loading="lazy">
+        <button class="play-btn" aria-label="Play demo video"><i class="fa-solid fa-play"></i></button>
+      </div>
+      <div class="float-card showcase__float showcase__float--1">
+        <i class="fa-solid fa-bolt"></i>
+        <div><strong>3.2s</strong><span>Avg. rate sync time</span></div>
+      </div>
+      <div class="float-card showcase__float showcase__float--2">
+        <i class="fa-solid fa-star"></i>
+        <div><strong>4.9/5</strong><span>Hotelier satisfaction</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 4 — PRODUCT SUITE ============ -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal-up"><i class="fa-solid fa-cubes"></i> Product Suite</span>
+      <h2 class="reveal-up">One Ecosystem. Every Tool a Property Needs.</h2>
+      <p class="reveal-up">Built as one connected platform — not seven separate logins.</p>
+    </div>
+  </div>
+
+  <div class="swiper products-swiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <article class="product-card">
+          <div class="product-card__glow"></div>
+          <div class="product-card__icon"><i class="fa-solid fa-hotel"></i></div>
+          <h3>All-in-One PMS</h3>
+          <p>Reservations, housekeeping, front desk and billing — unified in a single command center.</p>
+          <a href="#" class="product-card__cta">Explore PMS <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <div class="swiper-slide">
+        <article class="product-card">
+          <div class="product-card__glow"></div>
+          <div class="product-card__icon"><i class="fa-solid fa-brain"></i></div>
+          <h3>AI Pricing</h3>
+          <p>Demand-aware rate recommendations powered by real-time market and booking-pace signals.</p>
+          <a href="#" class="product-card__cta">Explore AI Pricing <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <div class="swiper-slide">
+        <article class="product-card">
+          <div class="product-card__glow"></div>
+          <div class="product-card__icon"><i class="fa-solid fa-gauge-high"></i></div>
+          <h3>Revenue Optimization</h3>
+          <p>Turn occupancy, ADR and RevPAR data into daily, actionable revenue decisions.</p>
+          <a href="#" class="product-card__cta">Explore Revenue <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <div class="swiper-slide">
+        <article class="product-card">
+          <div class="product-card__glow"></div>
+          <div class="product-card__icon"><i class="fa-solid fa-sliders"></i></div>
+          <h3>Rule Based Pricing</h3>
+          <p>Set your own guardrails — floors, ceilings and events — while AI handles the heavy lifting.</p>
+          <a href="#" class="product-card__cta">Explore Rules Engine <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <div class="swiper-slide">
+        <article class="product-card">
+          <div class="product-card__glow"></div>
+          <div class="product-card__icon"><i class="fa-solid fa-robot"></i></div>
+          <h3>BlueButler AI</h3>
+          <p>Automated guest messaging across WhatsApp and email — from booking to checkout.</p>
+          <a href="#" class="product-card__cta">Explore BlueButler <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <div class="swiper-slide">
+        <article class="product-card">
+          <div class="product-card__glow"></div>
+          <div class="product-card__icon"><i class="fa-solid fa-users-gear"></i></div>
+          <h3>Staff Management</h3>
+          <p>Auto-assigned tasks, shift schedules and real-time performance tracking for your team.</p>
+          <a href="#" class="product-card__cta">Explore Staff Tools <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+      <div class="swiper-slide">
+        <article class="product-card">
+          <div class="product-card__glow"></div>
+          <div class="product-card__icon"><i class="fa-solid fa-id-badge"></i></div>
+          <h3>HR Management</h3>
+          <p>Payroll, attendance and staff records built for the realities of hotel operations.</p>
+          <a href="#" class="product-card__cta">Explore HR Suite <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+
+    </div>
+  </div>
+  <div class="swiper-pagination products-pagination"></div>
+</section>
+
+<!-- ============ SECTION 5 — WHY BLUEARN (COMPARISON) ============ -->
+<section class="compare" id="why-bluearn">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal-up"><i class="fa-solid fa-scale-balanced"></i> Why BluEarn</span>
+      <h2 class="reveal-up">Traditional PMS Was Built for a World Without AI.</h2>
+      <p class="reveal-up">See the difference between running on legacy software and running on an intelligent platform.</p>
+    </div>
+
+    <div class="compare-table reveal-up">
+      <div class="compare-table__row compare-table__row--head">
+        <div class="compare-table__label"></div>
+        <div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-clock-rotate-left"></i> Traditional PMS</div>
+        <div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-water"></i> BluEarn AI Platform</div>
+      </div>
+
+      <div class="compare-table__row"><div class="compare-table__label">Rate Updates</div><div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-xmark"></i> Manual, hotel-by-hotel</div><div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-check"></i> AI-optimized in real time</div></div>
+
+      <div class="compare-table__row"><div class="compare-table__label">Demand Forecasting</div><div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-xmark"></i> None</div><div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-check"></i> Predictive, event-aware</div></div>
+
+      <div class="compare-table__row"><div class="compare-table__label">OTA Management</div><div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-xmark"></i> Fragmented, error-prone</div><div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-check"></i> One-click sync everywhere</div></div>
+
+      <div class="compare-table__row"><div class="compare-table__label">Guest Messaging</div><div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-xmark"></i> Manual, slow response</div><div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-check"></i> Automated via BlueButler AI</div></div>
+
+      <div class="compare-table__row"><div class="compare-table__label">Reporting</div><div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-xmark"></i> Spreadsheets & exports</div><div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-check"></i> Live dashboards</div></div>
+
+      <div class="compare-table__row"><div class="compare-table__label">Staff Scheduling</div><div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-xmark"></i> Siloed, paper-based</div><div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-check"></i> Auto-assigned & tracked</div></div>
+
+      <div class="compare-table__row"><div class="compare-table__label">Operational Mode</div><div class="compare-table__col compare-table__col--old"><i class="fa-solid fa-xmark"></i> Reactive</div><div class="compare-table__col compare-table__col--new"><i class="fa-solid fa-check"></i> Proactive & predictive</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6 — WHO WE SERVE ============ -->
+<section class="serve" id="who-we-serve">
+  <div class="container section-head">
+    <span class="eyebrow reveal-up"><i class="fa-solid fa-building-user"></i> Who We Serve</span>
+    <h2 class="reveal-up">Built for Every Kind of Property.</h2>
+    <p class="reveal-up">One platform, flexible enough for independent stays and large portfolios alike.</p>
+  </div>
+
+  <div class="swiper serve-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Hotels"><div class="serve-card__label"><i class="fa-solid fa-hotel"></i> Hotels</div></article></div>
+      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Resorts"><div class="serve-card__label"><i class="fa-solid fa-umbrella-beach"></i> Resorts</div></article></div>
+      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Boutique Hotels"><div class="serve-card__label"><i class="fa-solid fa-gem"></i> Boutique Hotels</div></article></div>
+      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Hotel Groups"><div class="serve-card__label"><i class="fa-solid fa-building"></i> Hotel Groups</div></article></div>
+      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1519449556851-5720b33024e7?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Hostels"><div class="serve-card__label"><i class="fa-solid fa-bed"></i> Hostels</div></article></div>
+      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Vacation Rentals"><div class="serve-card__label"><i class="fa-solid fa-house-chimney"></i> Vacation Rentals</div></article></div>
+      <div class="swiper-slide"><article class="serve-card"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Luxury Properties"><div class="serve-card__label"><i class="fa-solid fa-crown"></i> Luxury Properties</div></article></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7 — REAL USE CASES ============ -->
+<section class="usecases" id="use-cases">
+  <div class="container section-head">
+    <span class="eyebrow reveal-up"><i class="fa-solid fa-clapperboard"></i> Real Use Cases</span>
+    <h2 class="reveal-up">See BluEarn Working Inside Real Properties.</h2>
+    <p class="reveal-up">Feature demos, success stories and walkthroughs from the field.</p>
+  </div>
+
+  <div class="swiper usecases-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <article class="video-card">
+          <div class="video-card__thumb"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Feature demo"><span class="video-card__tag">Feature Demo</span><span class="video-card__duration">2:14</span><button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button></div>
+          <h4>Inside the AI Pricing Engine</h4>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="video-card">
+          <div class="video-card__thumb"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Success story"><span class="video-card__tag">Success Story</span><span class="video-card__duration">3:02</span><button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button></div>
+          <h4>How a 40-Room Boutique Hotel Grew RevPAR 27%</h4>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="video-card">
+          <div class="video-card__thumb"><img src="https://images.unsplash.com/photo-1560347876-aeef00ee58a1?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Product walkthrough"><span class="video-card__tag">Walkthrough</span><span class="video-card__duration">4:40</span><button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button></div>
+          <h4>Setting Up Channel Manager in Under 10 Minutes</h4>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="video-card">
+          <div class="video-card__thumb"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Tutorial"><span class="video-card__tag">Tutorial</span><span class="video-card__duration">1:58</span><button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button></div>
+          <h4>Automating Guest Messages With BlueButler AI</h4>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="video-card">
+          <div class="video-card__thumb"><img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Consultant interview"><span class="video-card__tag">Consultant</span><span class="video-card__duration">5:12</span><button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button></div>
+          <h4>A Revenue Strategist's Take on AI Pricing</h4>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="video-card">
+          <div class="video-card__thumb"><img src="https://images.unsplash.com/photo-1551776235-dde6d482980b?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Collaboration"><span class="video-card__tag">Collaboration</span><span class="video-card__duration">3:36</span><button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button></div>
+          <h4>Behind the Scenes: BluEarn x Hospitality Creators</h4>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8 — CHANNEL MANAGER / INTEGRATIONS ============ -->
+<section class="integrations" id="integrations">
+  <div class="container section-head">
+    <span class="eyebrow reveal-up"><i class="fa-solid fa-diagram-project"></i> Channel Manager</span>
+    <h2 class="reveal-up">Connected to Everything You Already Use.</h2>
+    <p class="reveal-up">OTAs, payments, booking engines and cloud infrastructure — synced automatically.</p>
+  </div>
+
+  <div class="swiper logo-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><span class="logo-chip"><i class="fa-solid fa-globe"></i> Booking.com</span></div>
+      <div class="swiper-slide"><span class="logo-chip"><i class="fa-solid fa-plane"></i> Expedia</span></div>
+      <div class="swiper-slide"><span class="logo-chip"><i class="fa-solid fa-earth-asia"></i> Agoda</span></div>
+      <div class="swiper-slide"><span class="logo-chip"><i class="fa-brands fa-airbnb"></i> Airbnb</span></div>
+      <div class="swiper-slide"><span class="logo-chip"><i class="fa-solid fa-route"></i> MakeMyTrip</span></div>
+      <div class="swiper-slide"><span class="logo-chip"><i class="fa-brands fa-google"></i> Google Hotel Ads</span></div>
+      <div class="swiper-slide"><span class="logo-chip"><i class="fa-brands fa-stripe"></i> Stripe</span></div>
+      <div class="swiper-slide"><span class="logo-chip"><i class="fa-solid fa-indian-rupee-sign"></i> Razorpay</span></div>
+      <div class="swiper-slide"><span class="logo-chip"><i class="fa-brands fa-aws"></i> AWS</span></div>
+      <div class="swiper-slide"><span class="logo-chip"><i class="fa-brands fa-google"></i> Google Cloud</span></div>
+      <div class="swiper-slide"><span class="logo-chip"><i class="fa-brands fa-microsoft"></i> Azure</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 9 — TESTIMONIALS ============ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <span class="eyebrow reveal-up"><i class="fa-solid fa-heart"></i> Loved by Hoteliers</span>
+        <h2 class="reveal-up">Real Results, In Their Own Words.</h2>
+      </div>
+      <div class="google-badge reveal-up">
+        <i class="fa-brands fa-google"></i>
+        <div><strong>4.9 / 5</strong><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span><span class="google-badge__count">200+ Google Reviews</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="swiper testimonials-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <article class="t-card">
+          <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+          <p>"BluEarn's AI pricing paid for itself in the first month. We stopped guessing our rates entirely."</p>
+          <div class="t-card__person"><div class="avatar">RK</div><div><strong>Rohan Kapoor</strong><span>GM, Boutique Hotel, Goa</span></div></div>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="t-card t-card--video">
+          <div class="t-card__video"><img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=700&q=80" loading="lazy" alt="Video testimonial"><button class="play-btn play-btn--sm" aria-label="Play video"><i class="fa-solid fa-play"></i></button></div>
+          <p>"Guest response time went from hours to seconds with BlueButler AI."</p>
+          <div class="t-card__person"><div class="avatar">SP</div><div><strong>Sneha Patil</strong><span>Owner, Coastal Resort Group</span></div></div>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="t-card">
+          <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+          <p>"Managing five properties used to take a full team. Now one dashboard does it all."</p>
+          <div class="t-card__person"><div class="avatar">AV</div><div><strong>Aditya Verma</strong><span>Director, Hotel Group, Jaipur</span></div></div>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="t-card">
+          <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+          <p>"The rule-based guardrails gave us confidence to let AI actually run pricing."</p>
+          <div class="t-card__person"><div class="avatar">MI</div><div><strong>Meera Iyer</strong><span>Revenue Manager, Hill Resort</span></div></div>
+        </article>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-pagination testimonials-pagination"></div>
+</section>
+
+<!-- ============ SECTION 10 — PRICING BANNER ============ -->
+<section class="pricing-banner" id="pricing-banner">
+  <div class="pricing-banner__fx" aria-hidden="true"></div>
+  <div class="container pricing-banner__inner">
+    <h2 class="reveal-up">Wondering How Much BluEarn Costs?</h2>
+    <p class="reveal-up">Less than the revenue you're probably losing with manual operations.</p>
+    <a href="#contact" class="btn btn--light btn--lg magnetic reveal-up"><span>Explore Pricing</span><i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ============ SECTION 11 — CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="container contact__grid">
+    <div class="contact__intro reveal-left">
+      <span class="eyebrow"><i class="fa-solid fa-envelope-open-text"></i> Let's Talk</span>
+      <h2>Get a Free Revenue &amp; Operations Consultation.</h2>
+      <p>Tell us about your property and one of our revenue strategists will get back to you within one business day.</p>
+
+      <div class="contact-float-card">
+        <div class="contact-float-card__item"><i class="fa-solid fa-phone"></i><div><strong>Call Us</strong><span>+91 82800 06543</span></div></div>
+        <div class="contact-float-card__item"><i class="fa-solid fa-envelope"></i><div><strong>Email Us</strong><span>hello@bluearn.ai</span></div></div>
+        <div class="contact-float-card__item"><i class="fa-solid fa-location-dot"></i><div><strong>Visit Us</strong><span>ATS Bouquet, Sector 132, Noida</span></div></div>
+      </div>
+    </div>
+
+    <div class="contact__form-wrap reveal-right">
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+            <span class="form-error">Please enter your name</span>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@property.com">
+            <span class="form-error">Please enter a valid email</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+91 00000 00000">
+            <span class="form-error">Please enter a valid phone number</span>
+          </div>
+          <div class="form-field">
+            <label for="property">Property Type</label>
+            <select id="property" name="property" required>
+              <option value="" disabled selected>Select one</option>
+              <option>Hotel</option>
+              <option>Resort</option>
+              <option>Boutique Hotel</option>
+              <option>Hotel Group</option>
+              <option>Hostel</option>
+              <option>Vacation Rental</option>
+              <option>Luxury Property</option>
+            </select>
+            <span class="form-error">Please select a property type</span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="message">Tell us about your property</label>
+          <textarea id="message" name="message" rows="4" placeholder="Number of rooms, current PMS, biggest challenge..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--lg magnetic btn--block">
+          <span>Get Free Consultation</span><i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="form-success__icon"><i class="fa-solid fa-check"></i></div>
+        <h3>Thank You!</h3>
+        <p>Your consultation request has been received. Our team will reach out within one business day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 12 — BLOG ============ -->
+<section class="blog" id="blog">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal-up"><i class="fa-solid fa-book-open"></i> Resources</span>
+      <h2 class="reveal-up">Insights for the Modern Hotelier.</h2>
+      <p class="reveal-up">Revenue strategy, AI in hospitality and operational playbooks.</p>
+    </div>
+
+    <div class="blog__grid">
+      <article class="blog-card reveal-up">
+        <div class="blog-card__image"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Dynamic pricing"><span class="blog-card__tag">Revenue Strategy</span></div>
+        <div class="blog-card__body">
+          <span class="blog-card__meta"><i class="fa-regular fa-clock"></i> 6 min read</span>
+          <h3>5 Dynamic Pricing Mistakes Costing Hotels Revenue</h3>
+          <p>Why static rate cards are quietly leaving money on the table — and how to fix it.</p>
+        </div>
+      </article>
+      <article class="blog-card reveal-up">
+        <div class="blog-card__image"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="AI in hospitality"><span class="blog-card__tag">AI in Hospitality</span></div>
+        <div class="blog-card__body">
+          <span class="blog-card__meta"><i class="fa-regular fa-clock"></i> 4 min read</span>
+          <h3>How AI Guest Messaging Improves Review Scores</h3>
+          <p>Faster responses correlate directly with higher guest satisfaction ratings.</p>
+        </div>
+      </article>
+      <article class="blog-card reveal-up">
+        <div class="blog-card__image"><img src="https://images.unsplash.com/photo-1445991842772-097fea258e7b?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Operations playbook"><span class="blog-card__tag">Operations</span></div>
+        <div class="blog-card__body">
+          <span class="blog-card__meta"><i class="fa-regular fa-clock"></i> 7 min read</span>
+          <h3>The 48-Hour Hotel Tech Migration Playbook</h3>
+          <p>A step-by-step guide to switching PMS platforms without losing a single booking.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 13 — FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container faq__grid">
+    <div class="faq__intro reveal-left">
+      <span class="eyebrow"><i class="fa-solid fa-circle-question"></i> FAQ</span>
+      <h2>Questions Hoteliers Ask Us Most.</h2>
+      <p>Can't find your answer? <a href="#contact">Talk to our team</a> directly.</p>
+    </div>
+
+    <div class="faq__list reveal-right">
+      <div class="faq-item is-open">
+        <button class="faq-item__q"><span>How long does it take to set up BluEarn?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-item__a"><p>Most properties are fully live within 48 hours, including rate migration and OTA reconnection.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-item__q"><span>Do I lose control over my pricing?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-item__a"><p>No. You set the floors, ceilings and rules — AI optimizes within the guardrails you define.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-item__q"><span>Which OTAs and channels does BluEarn support?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-item__a"><p>Booking.com, Expedia, Agoda, Airbnb, MakeMyTrip, Google Hotel Ads and more via our channel manager.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-item__q"><span>Can BluEarn manage multiple properties?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-item__a"><p>Yes — hotel groups run every property from a single unified dashboard with per-property controls.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-item__q"><span>What does BlueButler AI actually automate?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-item__a"><p>Booking confirmations, pre-arrival messages, in-stay requests and post-checkout follow-ups across WhatsApp and email.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-item__q"><span>Is there a long-term contract?</span><i class="fa-solid fa-plus"></i></button>
+        <div class="faq-item__a"><p>No lock-in. Plans are flexible and scale with the number of properties and rooms you manage.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer__top">
+    <div class="footer__brand">
+      <a href="#home" class="navbar__logo">
+        <span class="logo-mark"><i class="fa-solid fa-water"></i></span>
+        <span class="logo-text">Blu<span>Earn</span></span>
+      </a>
+      <p>The AI operating system for modern hospitality — pricing, PMS, guest experience and staff operations, unified.</p>
+      <div class="footer__socials">
+        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <h4>Product</h4>
+      <a href="#products">All-in-One PMS</a>
+      <a href="#products">AI Pricing</a>
+      <a href="#products">Revenue Optimization</a>
+      <a href="#products">BlueButler AI</a>
+      <a href="#products">Staff Management</a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Resources</h4>
+      <a href="#blog">Blog</a>
+      <a href="#use-cases">Use Cases</a>
+      <a href="#faq">FAQ</a>
+      <a href="#why-bluearn">Why BluEarn</a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#pricing-banner">Pricing</a>
+      <a href="#contact">Contact</a>
+      <a href="#">Status</a>
+    </div>
+
+    <div class="footer__col footer__newsletter">
+      <h4>Stay Updated</h4>
+      <p>Revenue insights, straight to your inbox.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <span>© 2026 BluEarn. All Rights Reserved.</span>
+    <div class="footer__legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms &amp; Conditions</a>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
