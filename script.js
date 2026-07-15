@@ -32,6 +32,27 @@
     };
   }
 
+  /* Attaches the magnetic mouse-follow effect to one element. Used both for
+     the bulk pass over .magnetic buttons at load and for buttons created
+     later inside dynamically-rendered content (e.g. the product showcase).
+     Idempotent — the product showcase's first panel gets attached once when
+     its cache entry is built, then the bulk pass below runs over the same
+     DOM; the dataset flag stops it from being wired up twice. */
+  function attachMagnetic(btn) {
+    if (reduceMotion || !window.matchMedia('(min-width: 1025px)').matches) return;
+    if (btn.dataset.magneticReady) return;
+    btn.dataset.magneticReady = 'true';
+    btn.addEventListener('mousemove', rafThrottle(function (e) {
+      var rect = btn.getBoundingClientRect();
+      var x = e.clientX - rect.left - rect.width / 2;
+      var y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = 'translate3d(' + x * 0.25 + 'px, ' + y * 0.35 + 'px, 0)';
+    }), { passive: true });
+    btn.addEventListener('mouseleave', function () {
+      btn.style.transform = 'translate3d(0, 0, 0)';
+    });
+  }
+
   /* ---------------- Preloader ---------------- */
   window.addEventListener('load', function () {
     var preloader = document.getElementById('preloader');
@@ -174,23 +195,6 @@
       keyboard: { enabled: true },
       pagination: { el: '.hero__pagination', clickable: true },
       navigation: { prevEl: '.hero__arrow--prev', nextEl: '.hero__arrow--next' }
-    });
-
-    /* Swiper: Product suite */
-    new Swiper('.products-swiper', {
-      loop: true,
-      speed: 700,
-      spaceBetween: 24,
-      slidesPerView: 1.05,
-      grabCursor: true,
-      keyboard: { enabled: true },
-      autoplay: reduceMotion ? false : { delay: 3800, disableOnInteraction: false, pauseOnMouseEnter: true },
-      pagination: { el: '.products-pagination', clickable: true },
-      breakpoints: {
-        640: { slidesPerView: 2.1, spaceBetween: 24 },
-        1024: { slidesPerView: 3.2, spaceBetween: 28 },
-        1280: { slidesPerView: 4, spaceBetween: 28 }
-      }
     });
 
     /* Swiper: Real use cases (reels/shorts carousel) */
@@ -344,36 +348,316 @@
     });
   })();
 
-  /* ---------------- Product card 3D tilt ---------------- */
-  if (!reduceMotion && window.matchMedia('(min-width: 1025px)').matches) {
-    document.querySelectorAll('.product-card').forEach(function (card) {
-      card.addEventListener('mousemove', rafThrottle(function (e) {
-        var rect = card.getBoundingClientRect();
-        var x = (e.clientX - rect.left) / rect.width - 0.5;
-        var y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = 'perspective(900px) rotateY(' + (x * 9) + 'deg) rotateX(' + (y * -9) + 'deg) translateY(-8px)';
-      }), { passive: true });
-      card.addEventListener('mouseleave', function () {
-        card.style.transform = '';
+  /* ---------------- Product Suite: interactive showcase ----------------
+     Single source of truth: add/remove/reorder products by editing this
+     array only — nav pills, the mobile dropdown and the content panel are
+     all generated from it, so nothing about the product count is hardcoded
+     in the HTML or in the render logic below. */
+  var PRODUCTS = [
+    {
+      icon: 'fa-hotel', accent: 'cyan', name: 'All-in-One PMS',
+      description: 'Reservations, housekeeping, front desk and billing — unified in a single command center.',
+      highlights: [
+        { icon: 'fa-bed', title: 'Live Room Status', text: "Every room's state updates the moment housekeeping finishes." },
+        { icon: 'fa-calendar-check', title: 'Unified Reservations', text: 'Bookings from every channel land in one calendar.' },
+        { icon: 'fa-file-invoice-dollar', title: 'Instant Billing', text: 'Folios and invoices generated automatically at checkout.' },
+        { icon: 'fa-arrows-rotate', title: 'Real-Time Sync', text: 'Front desk, housekeeping and finance always see the same data.' }
+      ],
+      ctaPrimary: { label: 'Explore PMS', href: '#contact' },
+      ctaSecondary: { label: 'Watch Demo', href: '#showcase' },
+      visual: '<div class="pv-centerpiece">' +
+        '<div class="product-mock__bar"><span></span><span></span><span></span><em>Front Desk</em></div>' +
+        '<div class="room-grid room-grid--mock" style="grid-template-columns:repeat(6,1fr)">' +
+        '<span class="room-tile is-occupied"></span><span class="room-tile is-occupied"></span><span class="room-tile is-cleaning"></span><span class="room-tile is-vacant"></span><span class="room-tile is-occupied"></span><span class="room-tile is-vacant"></span>' +
+        '<span class="room-tile is-vacant"></span><span class="room-tile is-occupied"></span><span class="room-tile is-occupied"></span><span class="room-tile is-cleaning"></span><span class="room-tile is-occupied"></span><span class="room-tile is-vacant"></span>' +
+        '</div><span class="mock-tag">18/24 Rooms Occupied</span></div>' +
+        '<div class="float-card pv-float pv-float--a"><div class="float-card__head">Occupancy <span class="live-dot"></span></div><div class="occ-ring"><svg viewBox="0 0 36 36"><path class="occ-ring__bg" d="M18 2a16 16 0 0 1 0 32 16 16 0 0 1 0-32"/><path class="occ-ring__fg" d="M18 2a16 16 0 0 1 0 32 16 16 0 0 1 0-32"/></svg><span>92%</span></div></div>' +
+        '<div class="float-card pv-float pv-float--b"><div class="float-card__head">Reservation</div><p class="reservation-line"><strong>Priya Sharma</strong><span>Room 214 · 2 Nights</span></p><div class="reservation-status"><i class="fa-solid fa-circle-check"></i> Confirmed</div></div>'
+    },
+    {
+      icon: 'fa-brain', accent: 'violet', name: 'AI Pricing',
+      description: 'Demand-aware rate recommendations powered by real-time market and booking-pace signals.',
+      highlights: [
+        { icon: 'fa-chart-line', title: 'Live Demand Signals', text: 'Rates react to occupancy, pace and events as they happen.' },
+        { icon: 'fa-earth-asia', title: 'Market-Aware', text: 'Competitor pricing and local events shape every suggestion.' },
+        { icon: 'fa-bolt', title: 'One-Click Apply', text: 'Accept AI suggestions instantly or fine-tune before publishing.' },
+        { icon: 'fa-shield-halved', title: 'Guardrails Built In', text: 'Never publishes a rate outside the floors and ceilings you set.' }
+      ],
+      ctaPrimary: { label: 'Get Pricing Strategy', href: '#contact' },
+      ctaSecondary: { label: 'Explore Rules Engine', href: '#' },
+      visual: '<div class="pv-centerpiece">' +
+        '<div class="product-mock__bar"><span></span><span></span><span></span><em>AI Pricing</em></div>' +
+        '<svg viewBox="0 0 220 90" class="mini-chart mini-chart--mock"><polyline points="0,70 25,58 50,64 75,40 100,46 125,20 150,28 175,10 200,16 220,4"/><circle cx="175" cy="10" r="5"/></svg>' +
+        '<span class="mock-tag">₹8,400 recommended · +12%</span></div>' +
+        '<div class="float-card pv-float pv-float--a"><div class="float-card__head">Demand Forecast</div><div class="bar-chart"><span style="--h:35%"></span><span style="--h:52%"></span><span style="--h:44%"></span><span style="--h:70%"></span><span style="--h:90%"></span></div></div>' +
+        '<div class="float-card pv-float pv-float--b pv-stat"><i class="fa-solid fa-wand-magic-sparkles"></i><div><strong>+18%</strong><span>Faster than manual pricing</span></div></div>'
+    },
+    {
+      icon: 'fa-gauge-high', accent: 'blue', name: 'Revenue Optimization',
+      description: 'Turn occupancy, ADR and RevPAR data into daily, actionable revenue decisions.',
+      highlights: [
+        { icon: 'fa-chart-simple', title: 'RevPAR Tracking', text: 'See exactly where revenue is being won or lost, daily.' },
+        { icon: 'fa-arrow-trend-up', title: 'ADR Benchmarking', text: 'Compare your average rate against your own targets.' },
+        { icon: 'fa-lightbulb', title: 'Actionable Insights', text: 'Clear next-best-actions, not just raw numbers.' },
+        { icon: 'fa-calendar-days', title: 'Forecast Ahead', text: 'See demand shifts weeks before they hit your calendar.' }
+      ],
+      ctaPrimary: { label: 'Explore Revenue', href: '#contact' },
+      visual: '<div class="pv-centerpiece">' +
+        '<div class="product-mock__bar"><span></span><span></span><span></span><em>Revenue</em></div>' +
+        '<div class="mock-stat-pair"><div><span>RevPAR</span><strong>₹6,240</strong><em class="up">+23.4%</em></div><div><span>ADR</span><strong>₹8,410</strong><em class="up">+11.2%</em></div></div></div>' +
+        '<div class="float-card pv-float pv-float--a"><div class="float-card__head">7-Day Trend</div><div class="bar-chart"><span style="--h:40%"></span><span style="--h:55%"></span><span style="--h:48%"></span><span style="--h:65%"></span><span style="--h:80%"></span><span style="--h:60%"></span><span style="--h:92%"></span></div></div>' +
+        '<div class="float-card pv-float pv-float--b pv-stat"><i class="fa-solid fa-arrow-trend-up"></i><div><strong>+₹2.3L</strong><span>Extra revenue this month</span></div></div>'
+    },
+    {
+      icon: 'fa-sliders', accent: 'gold', name: 'Rule Based Pricing',
+      description: 'Set your own guardrails — floors, ceilings and events — while AI handles the heavy lifting.',
+      highlights: [
+        { icon: 'fa-lock', title: 'Rate Floors & Ceilings', text: 'AI never prices outside the bounds you define.' },
+        { icon: 'fa-calendar-days', title: 'Event Overrides', text: 'Festivals and local events trigger your custom rules first.' },
+        { icon: 'fa-code-branch', title: 'Conditional Logic', text: "Rules like ‘if occupancy > 80%, raise rate by X%.’" },
+        { icon: 'fa-clock-rotate-left', title: 'Full Audit Trail', text: 'Every automated change is logged and reversible.' }
+      ],
+      ctaPrimary: { label: 'Explore Rules Engine', href: '#contact' },
+      visual: '<div class="pv-centerpiece">' +
+        '<div class="product-mock__bar"><span></span><span></span><span></span><em>Rules Engine</em></div>' +
+        '<div class="mock-range"><span class="mock-range__label">Floor ₹4,200</span><div class="mock-range__track"><div class="mock-range__fill"></div><div class="mock-range__handle"></div></div><span class="mock-range__label">Ceiling ₹9,800</span></div>' +
+        '<div class="pv-flow"><i class="fa-solid fa-calendar-days"></i><span></span><i class="fa-solid fa-arrow-right"></i><span></span><i class="fa-solid fa-tags"></i></div></div>' +
+        '<div class="float-card pv-float pv-float--a pv-stat"><i class="fa-solid fa-shield-halved"></i><div><strong>16+</strong><span>Guardrails available</span></div></div>' +
+        '<div class="float-card pv-float pv-float--b"><div class="float-card__head">Event Override</div><p class="reservation-line"><strong>Diwali Weekend</strong><span>Rate floor raised +30%</span></p></div>'
+    },
+    {
+      icon: 'fa-robot', accent: 'green', name: 'BlueButler AI',
+      description: 'Automated guest messaging across WhatsApp and email — from booking to checkout.',
+      highlights: [
+        { icon: 'fa-brands fa-whatsapp', title: 'WhatsApp Native', text: 'Guests message the way they already communicate.' },
+        { icon: 'fa-clock', title: '24/7 Response', text: 'No guest request waits for business hours again.' },
+        { icon: 'fa-language', title: 'Multilingual', text: "Replies fluently in your guests' own language." },
+        { icon: 'fa-door-open', title: 'Full Journey Coverage', text: 'From booking confirmation to post-checkout follow-up.' }
+      ],
+      ctaPrimary: { label: 'Talk To Our Team', href: '#contact' },
+      ctaSecondary: { label: 'See It In Action', href: '#use-cases' },
+      visual: '<div class="pv-centerpiece">' +
+        '<div class="product-mock__bar"><span></span><span></span><span></span><em>BlueButler AI</em></div>' +
+        '<p class="chat-bubble chat-bubble--in chat-bubble--mock">Can I get a late checkout?</p>' +
+        '<p class="chat-bubble chat-bubble--out chat-bubble--mock">Approved until 2 PM ✓</p>' +
+        '<p class="chat-bubble chat-bubble--in chat-bubble--mock">Perfect, thank you!</p></div>' +
+        '<div class="float-card pv-float pv-float--a"><div class="float-card__head"><i class="fa-brands fa-whatsapp"></i> Active <span class="live-dot"></span></div></div>' +
+        '<div class="float-card pv-float pv-float--b"><div class="float-card__head">Voice Assistant</div><div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div></div>'
+    },
+    {
+      icon: 'fa-users-gear', accent: 'violet', name: 'Staff Management',
+      description: 'Auto-assigned tasks, shift schedules and real-time performance tracking for your team.',
+      highlights: [
+        { icon: 'fa-list-check', title: 'Auto-Assigned Tasks', text: 'The moment a room is booked, the right task is created.' },
+        { icon: 'fa-calendar-week', title: 'Smart Scheduling', text: 'Shifts built around real occupancy, not guesswork.' },
+        { icon: 'fa-medal', title: 'Performance Tracking', text: "See who's completing tasks fastest, in real time." },
+        { icon: 'fa-bell', title: 'Instant Alerts', text: 'Delays and overdue tasks surface before guests notice.' }
+      ],
+      ctaPrimary: { label: 'Explore Staff Tools', href: '#contact' },
+      visual: '<div class="pv-centerpiece">' +
+        '<div class="product-mock__bar"><span></span><span></span><span></span><em>Staff Tasks</em></div>' +
+        '<ul class="mock-tasks"><li><i class="fa-solid fa-square-check"></i> Room 214 — Housekeeping</li><li><i class="fa-solid fa-square-check"></i> Room 118 — Maintenance</li><li><i class="fa-regular fa-square"></i> Room 402 — Turndown</li></ul></div>' +
+        '<div class="float-card pv-float pv-float--a"><div class="float-card__head">Today\'s Team</div><div class="pv-avatars"><div class="avatar">AR</div><div class="avatar">RK</div><div class="avatar">SM</div></div></div>' +
+        '<div class="float-card pv-float pv-float--b pv-stat"><i class="fa-solid fa-medal"></i><div><strong>98%</strong><span>Tasks completed on time</span></div></div>'
+    },
+    {
+      icon: 'fa-id-badge', accent: 'cyan', name: 'HR Management',
+      description: 'Payroll, attendance and staff records built for the realities of hotel operations.',
+      highlights: [
+        { icon: 'fa-fingerprint', title: 'Attendance Tracking', text: 'Clock-ins tied directly to shift schedules.' },
+        { icon: 'fa-money-check-dollar', title: 'Automated Payroll', text: 'Payroll calculated from actual hours, every cycle.' },
+        { icon: 'fa-address-card', title: 'Digital Staff Records', text: 'Contracts, IDs and documents, always accessible.' },
+        { icon: 'fa-chart-pie', title: 'Workforce Insights', text: 'Understand staffing costs across every property.' }
+      ],
+      ctaPrimary: { label: 'Explore HR Suite', href: '#contact' },
+      visual: '<div class="pv-centerpiece">' +
+        '<div class="product-mock__bar"><span></span><span></span><span></span><em>HR Suite</em></div>' +
+        '<ul class="mock-table"><li><span>Anita R.</span><em class="mock-badge mock-badge--in">On Duty</em></li><li><span>Ravi K.</span><em class="mock-badge mock-badge--in">On Duty</em></li><li><span>Sana M.</span><em class="mock-badge mock-badge--off">Off Today</em></li></ul></div>' +
+        '<div class="float-card pv-float pv-float--a"><div class="float-card__head">Attendance</div><div class="pv-cal"><span class="is-marked"></span><span class="is-marked"></span><span></span><span class="is-marked"></span><span class="is-marked"></span><span class="is-marked"></span><span></span></div></div>' +
+        '<div class="float-card pv-float pv-float--b pv-stat"><i class="fa-solid fa-money-check-dollar"></i><div><strong>Auto</strong><span>Payroll runs every cycle</span></div></div>'
+    }
+  ];
+
+  (function initProductSuite() {
+    var nav = document.getElementById('productNav');
+    var select = document.getElementById('productSelect');
+    var stage = document.getElementById('productStage');
+    var navWrap = nav ? nav.closest('.product-suite__nav-wrap') : null;
+    if (!nav || !select || !stage) return;
+
+    var activeIndex = -1; // no tab is active yet — the initial setActive(0, ...) call below must not be a no-op
+
+    /* Icon fields are normally a bare icon name ("fa-bed") and default to the
+       solid style; an icon can opt into another style (e.g. "fa-brands
+       fa-whatsapp") by including its own prefix, which is left untouched. */
+    function iconClass(icon) {
+      return /^fa-(solid|regular|brands|light|thin)\b/.test(icon) ? icon : 'fa-solid ' + icon;
+    }
+
+    function buildHighlight(h) {
+      return '<div class="product-highlight">' +
+        '<div class="product-highlight__icon"><i class="' + iconClass(h.icon) + '"></i></div>' +
+        '<div><strong>' + h.title + '</strong><span>' + h.text + '</span></div></div>';
+    }
+
+    function buildPanel(product) {
+      var highlightsHTML = product.highlights.map(buildHighlight).join('');
+      var ctaHTML = '<a href="' + product.ctaPrimary.href + '" class="btn btn--primary magnetic"><span>' + product.ctaPrimary.label + '</span><i class="fa-solid fa-arrow-right"></i></a>';
+      if (product.ctaSecondary) {
+        ctaHTML += '<a href="' + product.ctaSecondary.href + '" class="btn btn--ghost magnetic"><span>' + product.ctaSecondary.label + '</span></a>';
+      }
+      return '<div class="product-panel">' +
+        '<div class="product-panel__text">' +
+        '<div class="product-panel__icon"><i class="' + iconClass(product.icon) + '"></i></div>' +
+        '<h3>' + product.name + '</h3>' +
+        '<p>' + product.description + '</p>' +
+        '<div class="product-highlights">' + highlightsHTML + '</div>' +
+        '<div class="product-panel__ctas">' + ctaHTML + '</div>' +
+        '</div>' +
+        '<div class="product-visual" data-accent="' + product.accent + '">' +
+        '<div class="product-visual__glow"></div>' + product.visual +
+        '</div></div>';
+    }
+
+    var ACCENT_COLORS = { cyan: 'var(--cyan)', blue: 'var(--primary)', gold: 'var(--gold)', green: 'var(--green)', violet: '#a78bfa' };
+
+    function renderNav() {
+      nav.innerHTML = PRODUCTS.map(function (p, i) {
+        return '<button class="product-nav-pill' + (i === 0 ? ' is-active' : '') + '" data-index="' + i + '" role="tab" aria-selected="' + (i === 0) + '" style="--pill-accent:' + (ACCENT_COLORS[p.accent] || 'var(--cyan)') + '">' +
+          '<i class="' + iconClass(p.icon) + '"></i><span>' + p.name + '</span></button>';
+      }).join('');
+      select.innerHTML = PRODUCTS.map(function (p, i) {
+        return '<option value="' + i + '">' + p.name + '</option>';
+      }).join('');
+    }
+
+    function scrollActivePillIntoView() {
+      var activePill = nav.querySelector('.product-nav-pill.is-active');
+      if (activePill) activePill.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+    }
+
+    function updateFades() {
+      if (!navWrap) return;
+      var leftFade = navWrap.querySelector('.product-suite__fade--left');
+      var rightFade = navWrap.querySelector('.product-suite__fade--right');
+      if (leftFade) leftFade.classList.toggle('is-hidden', nav.scrollLeft <= 2);
+      if (rightFade) rightFade.classList.toggle('is-hidden', nav.scrollLeft + nav.clientWidth >= nav.scrollWidth - 2);
+    }
+
+    /* Panel cache: each product's panel is built at most once, so revisiting
+       a tab reuses the exact same DOM node instantly instead of re-rendering. */
+    var panelCache = {};
+    var isTransitioning = false;
+    var TRANSITION_MS = 320;
+
+    function getPanel(index) {
+      if (!panelCache[index]) {
+        var wrapper = document.createElement('div');
+        wrapper.innerHTML = buildPanel(PRODUCTS[index]);
+        var panel = wrapper.firstElementChild;
+        panel.querySelectorAll('.magnetic').forEach(attachMagnetic);
+        panelCache[index] = panel;
+      }
+      return panelCache[index];
+    }
+
+    /* Resets any inline styles a panel may have picked up the last time it
+       was animated (e.g. while it was the outgoing panel), so it starts
+       every transition from a known, clean state. */
+    function resetPanelStyle(panel) {
+      panel.style.cssText = '';
+    }
+
+    function setActive(index, opts) {
+      opts = opts || {};
+      if ((index === activeIndex && !opts.force) || isTransitioning) return;
+      activeIndex = index;
+
+      nav.querySelectorAll('.product-nav-pill').forEach(function (pill, i) {
+        pill.classList.toggle('is-active', i === index);
+        pill.setAttribute('aria-selected', String(i === index));
       });
+      select.value = String(index);
+
+      var prevPanel = stage.querySelector('.product-panel');
+      var nextPanel = getPanel(index);
+      resetPanelStyle(nextPanel);
+
+      if (!prevPanel || reduceMotion || opts.skipAnimation) {
+        // Nothing on stage yet (first load) or motion is disabled: just show it.
+        stage.style.height = '';
+        stage.appendChild(nextPanel);
+        if (!opts.skipScrollIntoView) scrollActivePillIntoView();
+        return;
+      }
+
+      if (nextPanel === prevPanel) return;
+
+      isTransitioning = true;
+
+      // Lock the stage at its current height so nothing collapses/jumps
+      // while both panels briefly coexist during the crossfade.
+      var startHeight = stage.getBoundingClientRect().height;
+      stage.style.height = startHeight + 'px';
+
+      // Measure the incoming panel's natural height at the same width,
+      // without ever showing it, so the height-lock can morph to the
+      // correct target instead of snapping after the fact.
+      nextPanel.style.cssText = 'position:absolute; top:0; left:0; width:100%; visibility:hidden; opacity:0;';
+      stage.appendChild(nextPanel); // mounted (hidden) — prevPanel is still fully present
+      var endHeight = nextPanel.getBoundingClientRect().height;
+
+      stage.style.transition = 'height ' + TRANSITION_MS + 'ms ease';
+      void stage.offsetHeight; // commit the transition property before changing height, so it actually animates
+      stage.style.height = endHeight + 'px';
+
+      prevPanel.style.transition = 'opacity ' + TRANSITION_MS + 'ms ease';
+      nextPanel.style.transition = 'opacity ' + TRANSITION_MS + 'ms ease';
+      nextPanel.style.visibility = 'visible';
+
+      requestAnimationFrame(function () {
+        prevPanel.style.opacity = '0';
+        nextPanel.style.opacity = '1';
+      });
+
+      setTimeout(function () {
+        prevPanel.remove(); // only unmounted now that the incoming panel is fully visible
+        resetPanelStyle(nextPanel);
+        stage.style.transition = '';
+        stage.style.height = '';
+        isTransitioning = false;
+      }, TRANSITION_MS);
+
+      if (!opts.skipScrollIntoView) scrollActivePillIntoView();
+    }
+
+    renderNav();
+    setActive(0, { skipAnimation: true, skipScrollIntoView: true });
+
+    nav.addEventListener('click', function (e) {
+      var pill = e.target.closest('.product-nav-pill');
+      if (pill) setActive(parseInt(pill.getAttribute('data-index'), 10));
     });
-  }
+
+    select.addEventListener('change', function () {
+      setActive(parseInt(select.value, 10));
+    });
+
+    /* Mouse wheel scrolls the nav horizontally (trackpad/touch already work natively) */
+    nav.addEventListener('wheel', function (e) {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        nav.scrollLeft += e.deltaY;
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    nav.addEventListener('scroll', rafThrottle(updateFades), { passive: true });
+    window.addEventListener('resize', debounce(updateFades, 150), { passive: true });
+    updateFades();
+  })();
 
   /* ---------------- Magnetic buttons ---------------- */
-  var magnetics = document.querySelectorAll('.magnetic');
-  if (!reduceMotion && window.matchMedia('(min-width: 1025px)').matches) {
-    magnetics.forEach(function (btn) {
-      btn.addEventListener('mousemove', rafThrottle(function (e) {
-        var rect = btn.getBoundingClientRect();
-        var x = e.clientX - rect.left - rect.width / 2;
-        var y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = 'translate3d(' + x * 0.25 + 'px, ' + y * 0.35 + 'px, 0)';
-      }), { passive: true });
-      btn.addEventListener('mouseleave', function () {
-        btn.style.transform = 'translate3d(0, 0, 0)';
-      });
-    });
-  }
+  document.querySelectorAll('.magnetic').forEach(attachMagnetic);
 
   /* ---------------- YouTube facade (perf-friendly video embed) ---------------- */
   var ytFacade = document.getElementById('ytFacade');

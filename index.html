@@ -343,140 +343,34 @@
   </div>
 </section>
 
-<!-- ============ SECTION 4 — PRODUCT SUITE ============ -->
-<section class="products" id="products">
+<!-- ============ SECTION 4 — PRODUCT SUITE (interactive showcase) ============
+     All content below is rendered by script.js from the PRODUCTS array —
+     nothing here is hardcoded per-product, so products can be added, removed
+     or reordered by editing that one array. ============ -->
+<section class="product-suite" id="products">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow reveal-up"><i class="fa-solid fa-cubes"></i> Product Suite</span>
       <h2 class="reveal-up">One Ecosystem. Every Tool a Property Needs.</h2>
       <p class="reveal-up">Built as one connected platform — not seven separate logins.</p>
     </div>
-  </div>
 
-  <div class="swiper products-swiper">
-    <div class="swiper-wrapper">
-
-      <div class="swiper-slide">
-        <article class="product-card">
-          <div class="product-card__glow"></div>
-          <div class="product-mock">
-            <div class="product-mock__bar"><span></span><span></span><span></span><em>Front Desk</em></div>
-            <div class="room-grid room-grid--mock">
-              <span class="room-tile is-occupied"></span><span class="room-tile is-occupied"></span><span class="room-tile is-cleaning"></span><span class="room-tile is-vacant"></span>
-              <span class="room-tile is-vacant"></span><span class="room-tile is-occupied"></span><span class="room-tile is-occupied"></span><span class="room-tile is-cleaning"></span>
-            </div>
-          </div>
-          <div class="product-card__icon"><i class="fa-solid fa-hotel"></i></div>
-          <h3>All-in-One PMS</h3>
-          <p>Reservations, housekeeping, front desk and billing — unified in a single command center.</p>
-          <a href="#" class="product-card__cta">Explore PMS <i class="fa-solid fa-arrow-right"></i></a>
-        </article>
-      </div>
-
-      <div class="swiper-slide">
-        <article class="product-card">
-          <div class="product-card__glow"></div>
-          <div class="product-mock">
-            <div class="product-mock__bar"><span></span><span></span><span></span><em>AI Pricing</em></div>
-            <svg viewBox="0 0 220 70" class="mini-chart mini-chart--mock"><polyline points="0,55 25,45 50,50 75,30 100,35 125,15 150,22 175,8 200,14 220,4"/><circle cx="175" cy="8" r="4"/></svg>
-            <span class="mock-tag">₹8,400 recommended</span>
-          </div>
-          <div class="product-card__icon"><i class="fa-solid fa-brain"></i></div>
-          <h3>AI Pricing</h3>
-          <p>Demand-aware rate recommendations powered by real-time market and booking-pace signals.</p>
-          <a href="#" class="product-card__cta">Explore AI Pricing <i class="fa-solid fa-arrow-right"></i></a>
-        </article>
-      </div>
-
-      <div class="swiper-slide">
-        <article class="product-card">
-          <div class="product-card__glow"></div>
-          <div class="product-mock">
-            <div class="product-mock__bar"><span></span><span></span><span></span><em>Revenue</em></div>
-            <div class="mock-stat-pair">
-              <div><span>RevPAR</span><strong>₹6,240</strong><em class="up">+23.4%</em></div>
-              <div><span>ADR</span><strong>₹8,410</strong><em class="up">+11.2%</em></div>
-            </div>
-          </div>
-          <div class="product-card__icon"><i class="fa-solid fa-gauge-high"></i></div>
-          <h3>Revenue Optimization</h3>
-          <p>Turn occupancy, ADR and RevPAR data into daily, actionable revenue decisions.</p>
-          <a href="#" class="product-card__cta">Explore Revenue <i class="fa-solid fa-arrow-right"></i></a>
-        </article>
-      </div>
-
-      <div class="swiper-slide">
-        <article class="product-card">
-          <div class="product-card__glow"></div>
-          <div class="product-mock">
-            <div class="product-mock__bar"><span></span><span></span><span></span><em>Rules Engine</em></div>
-            <div class="mock-range">
-              <span class="mock-range__label">Floor ₹4,200</span>
-              <div class="mock-range__track"><div class="mock-range__fill"></div><div class="mock-range__handle"></div></div>
-              <span class="mock-range__label">Ceiling ₹9,800</span>
-            </div>
-          </div>
-          <div class="product-card__icon"><i class="fa-solid fa-sliders"></i></div>
-          <h3>Rule Based Pricing</h3>
-          <p>Set your own guardrails — floors, ceilings and events — while AI handles the heavy lifting.</p>
-          <a href="#" class="product-card__cta">Explore Rules Engine <i class="fa-solid fa-arrow-right"></i></a>
-        </article>
-      </div>
-
-      <div class="swiper-slide">
-        <article class="product-card">
-          <div class="product-card__glow"></div>
-          <div class="product-mock">
-            <div class="product-mock__bar"><span></span><span></span><span></span><em>BlueButler AI</em></div>
-            <p class="chat-bubble chat-bubble--in chat-bubble--mock">Can I get a late checkout?</p>
-            <p class="chat-bubble chat-bubble--out chat-bubble--mock">Approved until 2 PM ✓</p>
-          </div>
-          <div class="product-card__icon"><i class="fa-solid fa-robot"></i></div>
-          <h3>BlueButler AI</h3>
-          <p>Automated guest messaging across WhatsApp and email — from booking to checkout.</p>
-          <a href="#" class="product-card__cta">Explore BlueButler <i class="fa-solid fa-arrow-right"></i></a>
-        </article>
-      </div>
-
-      <div class="swiper-slide">
-        <article class="product-card">
-          <div class="product-card__glow"></div>
-          <div class="product-mock">
-            <div class="product-mock__bar"><span></span><span></span><span></span><em>Staff Tasks</em></div>
-            <ul class="mock-tasks">
-              <li><i class="fa-solid fa-square-check"></i> Room 214 — Housekeeping</li>
-              <li><i class="fa-solid fa-square-check"></i> Room 118 — Maintenance</li>
-              <li><i class="fa-regular fa-square"></i> Room 402 — Turndown</li>
-            </ul>
-          </div>
-          <div class="product-card__icon"><i class="fa-solid fa-users-gear"></i></div>
-          <h3>Staff Management</h3>
-          <p>Auto-assigned tasks, shift schedules and real-time performance tracking for your team.</p>
-          <a href="#" class="product-card__cta">Explore Staff Tools <i class="fa-solid fa-arrow-right"></i></a>
-        </article>
-      </div>
-
-      <div class="swiper-slide">
-        <article class="product-card">
-          <div class="product-card__glow"></div>
-          <div class="product-mock">
-            <div class="product-mock__bar"><span></span><span></span><span></span><em>HR Suite</em></div>
-            <ul class="mock-table">
-              <li><span>Anita R.</span><em class="mock-badge mock-badge--in">On Duty</em></li>
-              <li><span>Ravi K.</span><em class="mock-badge mock-badge--in">On Duty</em></li>
-              <li><span>Sana M.</span><em class="mock-badge mock-badge--off">Off Today</em></li>
-            </ul>
-          </div>
-          <div class="product-card__icon"><i class="fa-solid fa-id-badge"></i></div>
-          <h3>HR Management</h3>
-          <p>Payroll, attendance and staff records built for the realities of hotel operations.</p>
-          <a href="#" class="product-card__cta">Explore HR Suite <i class="fa-solid fa-arrow-right"></i></a>
-        </article>
-      </div>
-
+    <div class="product-suite__nav-wrap reveal-up">
+      <span class="product-suite__fade product-suite__fade--left" aria-hidden="true"></span>
+      <div class="product-suite__nav" id="productNav" role="tablist" aria-label="Explore BluEarn products"></div>
+      <span class="product-suite__fade product-suite__fade--right" aria-hidden="true"></span>
     </div>
+
+    <div class="product-suite__mobile-nav">
+      <label class="sr-only" for="productSelect">Choose a product</label>
+      <div class="product-select-wrap">
+        <select id="productSelect" class="product-select" aria-label="Choose a product"></select>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </div>
+
+    <div class="product-suite__stage" id="productStage"></div>
   </div>
-  <div class="swiper-pagination products-pagination"></div>
 </section>
 
 <!-- ============ SECTION 5 — WHY BLUEARN (COMPARISON) ============ -->
