@@ -309,6 +309,9 @@ section { position: relative; }
   display: flex; align-items: center;
   background-image: var(--bg);
   background-size: cover; background-position: center;
+  /* Reserves room for hero__controls + hero__stats (absolutely positioned,
+     bottom-anchored) so vertical centering never pushes the CTAs behind them. */
+  padding-bottom: 205px;
 }
 .hero-slide__overlay {
   position: absolute; inset: 0; z-index: -1;
@@ -316,9 +319,14 @@ section { position: relative; }
     linear-gradient(100deg, rgba(6,8,15,.97) 15%, rgba(6,8,15,.85) 45%, rgba(6,8,15,.55) 100%),
     linear-gradient(0deg, rgba(6,8,15,1) 0%, transparent 30%);
 }
-.hero-slide__content { max-width: 720px; padding-top: 60px; }
-.hero-slide__content h1 { margin-bottom: 22px; }
-.hero-slide__content p { font-size: 1.15rem; max-width: 560px; margin-bottom: 34px; }
+/* Deliberately no max-width override here: this div also carries .container,
+   whose max-width:1240px + margin:0 auto keeps its LEFT EDGE aligned with the
+   navbar and every other section. Capping width on the child text elements
+   below (not this box) keeps the multi-line headline effect without re-
+   centering the whole block into the middle of the screen. */
+.hero-slide__content { padding-top: 48px; }
+.hero-slide__content h1 { margin-bottom: 16px; font-size: clamp(2.1rem, 4.4vw, 3.75rem); max-width: 700px; }
+.hero-slide__content p { font-size: 1.15rem; max-width: 560px; margin-bottom: 24px; }
 .hero-slide__ctas { display: flex; gap: 16px; flex-wrap: wrap; align-items: stretch; max-width: 100%; }
 .hero-slide__ctas .btn { flex: 0 1 auto; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
 
@@ -741,12 +749,12 @@ section { position: relative; }
   .navbar__toggle { display: flex; }
   .navbar__phone { display: none; }
 
-  .hero-slide__content { max-width: 100%; }
   .float-card--stat, .float-card--chat { display: none; }
   .float-card--revenue { top: 18%; right: 5%; width: 200px; }
 
   .hero__stats-grid { grid-template-columns: repeat(2, 1fr); row-gap: 18px; }
   .stat:nth-child(2) { border-right: none; }
+  .hero__controls { bottom: 155px; }
 
   .showcase__grid, .contact__grid, .faq__grid { grid-template-columns: 1fr; }
   .showcase__video-wrap { order: -1; }
@@ -763,6 +771,7 @@ section { position: relative; }
   .navbar__actions .btn span { display: none; }
   .navbar__actions .btn { padding: 12px 14px; }
 
+  .hero-slide { padding-bottom: 260px; }
   .hero-slide__content p { font-size: 1rem; }
   .hero-slide__ctas { flex-direction: column; align-items: stretch; gap: 12px; }
   .hero-slide__ctas .btn { width: 100%; white-space: normal; }
@@ -800,6 +809,7 @@ section { position: relative; }
 /* Short-viewport safety net (landscape phones/tablets) — prevents hero content
    from being clipped by the section's fixed 100vh height regardless of width. */
 @media (max-height: 700px) {
+  .hero-slide { padding-bottom: 90px; }
   .hero-slide__content { padding-top: 84px; }
   .hero-slide__content h1 { margin-bottom: 12px; font-size: clamp(1.5rem, 4vw, 2.4rem); }
   .hero-slide__content p { margin-bottom: 16px; font-size: 0.92rem; }
