@@ -816,5 +816,4 @@ section { position: relative; }
   .hero__stats { display: none; }
   .hero__controls { bottom: 20px; }
   .hero__scroll-indicator { display: none; }
-  .float-card--stat, .float-card--chat, .float-card--revenue, .float-card--booking { display: none; }
 }
