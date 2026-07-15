@@ -474,10 +474,9 @@ section { position: relative; }
 .feature-grid__fx { position: absolute; inset: 0; pointer-events: none; opacity: 0.6; }
 .blob--3 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(47,107,255,.35), transparent 70%); top: -30%; left: 50%; transform: translateX(-50%); mix-blend-mode: screen; }
 
-.feature-grid__grid {
-  position: relative;
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
-}
+/* Hidden at every breakpoint — kept only as the single source of truth that
+   script.js clones cards from into .feature-swiper below. */
+.feature-grid__grid { display: none; }
 .feature-node {
   position: relative;
   padding: 26px 22px; border-radius: var(--radius-md);
@@ -508,9 +507,12 @@ section { position: relative; }
 .feature-node h4 { font-size: 0.96rem; margin-bottom: 6px; }
 .feature-node p { font-size: 0.82rem; line-height: 1.4; }
 
-/* Mobile-only auto-scrolling carousel version of the grid above (same cards,
-   cloned via JS) — desktop/tablet keep the static grid untouched. */
-.feature-swiper { display: none; }
+/* Continuous auto-scrolling carousel (cards cloned from the hidden grid
+   template above) — shown at every breakpoint. */
+.feature-swiper { display: block; padding: 10px 0 6px; cursor: grab; }
+.feature-swiper:active { cursor: grabbing; }
+.feature-swiper .swiper-slide { width: 250px; }
+.feature-swiper .feature-node { height: 100%; }
 
 /* ============ SHOWCASE ============ */
 .showcase { padding: var(--section-pad) 0; overflow: hidden; }
@@ -942,7 +944,6 @@ section { position: relative; }
 @media (max-width: 1180px) {
   .footer__top { grid-template-columns: 1fr 1fr 1fr; }
   .footer__brand { grid-column: 1 / -1; }
-  .feature-grid__grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 1024px) {
@@ -982,11 +983,8 @@ section { position: relative; }
   .navbar__actions .btn span { display: none; }
   .navbar__actions .btn { padding: 12px 14px; }
 
-  .feature-grid__grid { display: none; }
-  .feature-swiper { display: block; padding: 6px 0 4px; cursor: grab; }
-  .feature-swiper:active { cursor: grabbing; }
+  .feature-swiper { padding: 6px 0 4px; }
   .feature-swiper .swiper-slide { width: 210px; }
-  .feature-swiper .feature-node { height: 100%; }
 
   .hero-slide { padding-bottom: 260px; }
   .hero-slide__content p { font-size: 1rem; }

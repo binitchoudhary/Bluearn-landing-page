@@ -248,6 +248,7 @@
       <p class="reveal-up">One connected ecosystem that powers every part of your hotel operations.</p>
     </div>
 
+    <!-- Hidden template — never shown directly, script.js clones these cards into .feature-swiper below -->
     <div class="feature-grid__grid">
       <article class="feature-node reveal-up">
         <div class="feature-node__icon"><i class="fa-solid fa-brain"></i><span class="live-dot"></span></div>
@@ -300,11 +301,12 @@
         <p>Real-time dashboards, not spreadsheets.</p>
       </article>
     </div>
+  </div>
 
-    <!-- Mobile only: auto-scrolling carousel (cards cloned from the grid above via JS) -->
-    <div class="swiper feature-swiper">
-      <div class="swiper-wrapper"></div>
-    </div>
+  <!-- Auto-scrolling carousel, all breakpoints (cards cloned from the hidden grid template above via JS).
+       Deliberately outside .container so it runs full-bleed edge-to-edge, matching Who We Serve. -->
+  <div class="swiper feature-swiper">
+    <div class="swiper-wrapper"></div>
   </div>
 </section>
 
