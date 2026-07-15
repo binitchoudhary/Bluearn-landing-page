@@ -145,6 +145,23 @@
     counters.forEach(function (el) { counterObserver.observe(el); });
   }
 
+  /* Mobile feature carousel: clone the desktop grid's cards (single source of
+     truth) into the swiper wrapper, stripping reveal classes since they were
+     never observed by the IntersectionObserver on these clones. */
+  (function cloneFeatureCards() {
+    var grid = document.querySelector('.feature-grid__grid');
+    var wrapper = document.querySelector('.feature-swiper .swiper-wrapper');
+    if (!grid || !wrapper) return;
+    grid.querySelectorAll('.feature-node').forEach(function (node) {
+      var clone = node.cloneNode(true);
+      clone.classList.remove('reveal-up', 'is-visible');
+      var slide = document.createElement('div');
+      slide.className = 'swiper-slide';
+      slide.appendChild(clone);
+      wrapper.appendChild(slide);
+    });
+  })();
+
   /* ---------------- Swiper: Hero ---------------- */
   if (window.Swiper) {
     new Swiper('.hero-swiper', {
@@ -218,6 +235,20 @@
       grabCursor: true,
       keyboard: { enabled: true },
       autoplay: reduceMotion ? false : { delay: 1, disableOnInteraction: false, pauseOnMouseEnter: true }
+    });
+
+    /* Swiper: Feature grid (mobile only) — same continuous free-drag ticker */
+    new Swiper('.feature-swiper', {
+      loop: true,
+      freeMode: { enabled: true, momentum: true },
+      slidesPerView: 'auto',
+      spaceBetween: 16,
+      speed: 4500,
+      grabCursor: true,
+      keyboard: { enabled: true },
+      autoplay: reduceMotion ? false : { delay: 1, disableOnInteraction: false, pauseOnMouseEnter: true },
+      observer: true,
+      observeParents: true
     });
 
     /* Swiper: Channel Manager logos — continuous free-drag ticker */

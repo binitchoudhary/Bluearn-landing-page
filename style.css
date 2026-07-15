@@ -508,6 +508,10 @@ section { position: relative; }
 .feature-node h4 { font-size: 0.96rem; margin-bottom: 6px; }
 .feature-node p { font-size: 0.82rem; line-height: 1.4; }
 
+/* Mobile-only auto-scrolling carousel version of the grid above (same cards,
+   cloned via JS) — desktop/tablet keep the static grid untouched. */
+.feature-swiper { display: none; }
+
 /* ============ SHOWCASE ============ */
 .showcase { padding: var(--section-pad) 0; overflow: hidden; }
 .showcase__bg { position: absolute; inset: 0; background: var(--gradient-radial-glow); opacity: 0.5; pointer-events: none; }
@@ -978,7 +982,11 @@ section { position: relative; }
   .navbar__actions .btn span { display: none; }
   .navbar__actions .btn { padding: 12px 14px; }
 
-  .feature-grid__grid { grid-template-columns: repeat(2, 1fr); }
+  .feature-grid__grid { display: none; }
+  .feature-swiper { display: block; padding: 6px 0 4px; cursor: grab; }
+  .feature-swiper:active { cursor: grabbing; }
+  .feature-swiper .swiper-slide { width: 210px; }
+  .feature-swiper .feature-node { height: 100%; }
 
   .hero-slide { padding-bottom: 260px; }
   .hero-slide__content p { font-size: 1rem; }
